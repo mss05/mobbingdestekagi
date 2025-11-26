@@ -2,37 +2,45 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Şeffaf İletişim Ağı | Burada Mobbing Var</title>
-    <meta name="description" content="Kanıt destekli anonim mobbing hikayelerinin paylaşıldığı platform. Bilen, bilmeyene duyuruyor.">
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şeffaf Ağ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header> <main id="sosyal-ag-page">
-        <h1>🗣️ Şeffaf İletişim Ağı: Deneyimini Paylaş</h1>
-        <p>Mobbing, çoğu zaman sinsice planlanır. Bu ağ, yaşanmış deneyimleri paylaşarak farkındalığı artırmayı hedefler ve genç kuşağın haklarını korur. </p>
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" class="main-logo-png"> <span>Burada Mobbing Var</span></a></div>
+            <nav><ul><li><a href="index.html">Ana Sayfa</a></li></ul></nav>
+        </div>
+    </header>
 
-        <section id="hikaye-paylas">
-            <h2>Anonim Hikaye Paylaşımı</h2>
-            <p>Deneyiminizi (anonimleştirilmiş yazışma ekranları, tutanaklar vb.) paylaşarak diğer mağdurlara ışık tutun. Gizliliğiniz garantimiz altındadır.</p>
-            <form action="/submit-story" method="POST">
-                <input type="text" placeholder="Anonim Kullanıcı Adınız" required>
-                <select required>
-                    <option value="">İlgili Sektör Seçiniz</option>
-                    <option>Sanayi Sektörü</option>
-                    <option>Mağaza/Market/Restoran</option>
-                    </select>
-                <textarea placeholder="Yaşadığınız durumu (Sistematik ve Kasıtlı olmalı) özetleyin..." rows="6" required></textarea>
-                <input type="file" accept="image/*, application/pdf"> <button type="submit" class="btn btn-primary">Hikayeyi Paylaş (Moderasyon Sonrası Yayınlanır)</button>
+    <main>
+        <section class="section-white">
+            <h1>🗣️ Şeffaf İletişim Ağı</h1>
+            <p style="text-align:center;">Anonim hikayeni paylaş, sesini duyur.</p>
+            
+            <form style="margin-bottom:40px;">
+                <label>Rumuz:</label>
+                <input type="text" placeholder="Anonim Kullanıcı">
+                <label>Hikaye:</label>
+                <textarea rows="4"></textarea>
+                <button class="btn btn-action">Paylaş</button>
             </form>
-        </section>
 
-        <section id="hikaye-feed">
-            <h2>Yakın Zamanda Paylaşılanlar</h2>
-            <p>Sunucu tarafındaki veriler (hukuki ve psikolojik onay sonrası) burada akış halinde listelenecektir.</p>
+            <div class="module-cards">
+                <div class="card" style="text-align:left;">
+                    <h4>Anonim #2341</h4>
+                    <p>"Yöneticim herkesin içinde bana bağırdı..."</p>
+                    <small style="color:var(--text-light);">2 saat önce</small>
+                </div>
+                <div class="card" style="text-align:left;">
+                    <h4>Anonim #9982</h4>
+                    <p>"İstifa etmem için sürekli iş yükümü artırıyorlar."</p>
+                    <small style="color:var(--text-light);">1 gün önce</small>
+                </div>
+            </div>
         </section>
     </main>
-
-    <footer>...</footer>
 </body>
 </html>
