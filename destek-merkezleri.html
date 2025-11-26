@@ -1,10 +1,39 @@
-<div id="mobbingMap" style="height: 600px; width: 100%;"></div>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Destek Merkezleri ve Harita | Burada Mobbing Var</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>...</header>
 
-<div id="locationList">
-    <h2>Size En Yakın Destek Noktaları</h2>
-    </div>
+    <main id="destek-merkezleri-page">
+        <h1>📍 Size En Yakın Destek Noktaları</h1>
+        <p>Hukuki, psikolojik ve resmi yardım alabileceğiniz kurum ve kuruluşları harita üzerinde görüntüleyin. [cite_start]Mobbing mağdurlarının en çok zorlandıkları konu yasal yollara başvurma konusunda seçime zorlanmalarıdır[cite: 1090]. Bu merkezler size yol gösterecektir.</p>
 
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-</script>
-<script src="/assets/js/map-integration.js"></script>
+        <section id="map-section">
+            <div id="mobbingMap" style="height: 500px; width: 100%;"></div>
+            
+            <div id="filter-options">
+                <label for="map_filter">Destek Türünü Filtrele:</label>
+                <select id="map_filter">
+                    <option value="all">Tümü</option>
+                    <option value="hukuk">Hukuki (Barolar, Dernekler)</option>
+                    <option value="resmi">Resmi Kurumlar (TİHEK, BİMER)</option>
+                    <option value="psikoloji">Psikososyal Destek</option>
+                </select>
+            </div>
+        </section>
+        
+        <div id="locationList">
+            <h2>Önemli Kurumlar ve İletişim Bilgileri</h2>
+            </div>
+    </main>
+
+    <footer>...</footer>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <script src="map-integration.js"></script>
+</body>
+</html>
