@@ -2,24 +2,49 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Mobbing Testi: Mobbing mi, Değil mi? | Burada Mobbing Var</title>
-    <meta name="description" content="Yaşadığınız durumun mobbing olup olmadığını anlamanız için hazırlanmış çekişmeli senaryo tabanlı test modülü.">
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobbing Testi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header> <main id="mobbing-test-page">
-        <h1>🧠 Mobbing Testi: Durumunuzu Analiz Edin</h1>
-        <p>Aşağıdaki senaryolar, Mobbingin temel unsurlarını (Sistematiklik ve Kasıt) anlamanız için hazırlanmıştır. Tüm senaryolar, size doğru bilgi verebilmek amacıyla mobbing örneği olarak kurgulanmıştır.</p>
-
-        <div id="quiz-container">
-            <p>Lütfen bekleyiniz, test yükleniyor...</p>
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" class="main-logo-png"> <span>Burada Mobbing Var</span></a></div>
+            <nav><ul><li><a href="index.html">Ana Sayfa</a></li></ul></nav>
         </div>
-        
-        <a href="index.html" class="btn-back">Ana Sayfaya Dön</a>
+    </header>
+
+    <main>
+        <section class="section-white">
+            <h1>🧠 Mobbing Testi</h1>
+            <div id="quiz-container" style="max-width:700px; margin:0 auto; text-align:left;">
+                </div>
+            <button onclick="sonucGoster()" class="btn btn-action" style="display:block; margin:20px auto;">Sonucu Gör</button>
+        </section>
     </main>
 
-    <footer>...</footer>
-    <script src="mobbing-testi-logic.js"></script> 
+    <script>
+        const sorular = [
+            "Yöneticiniz yeteneklerinizin altında işler veriyor mu?",
+            "İş arkadaşlarınız sizi görmezden geliyor mu?",
+            "Sürekli haksız yere tutanak tutuluyor mu?"
+        ];
+
+        const container = document.getElementById('quiz-container');
+        sorular.forEach((soru, index) => {
+            container.innerHTML += `
+                <div class="card" style="margin-bottom:15px; text-align:left;">
+                    <p><strong>${index+1}.</strong> ${soru}</p>
+                    <label><input type="radio" name="s${index}" value="1"> Evet (Mobbing)</label>
+                    <label><input type="radio" name="s${index}" value="0"> Hayır</label>
+                </div>
+            `;
+        });
+
+        function sonucGoster() {
+            alert("Bu bir simülasyondur. Verdiğiniz 'Evet' cevapları sistematikse mobbing riski altındasınız.");
+        }
+    </script>
 </body>
 </html>
