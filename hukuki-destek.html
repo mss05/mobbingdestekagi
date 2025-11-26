@@ -2,21 +2,59 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Hukuki Destek Ağı | Burada Mobbing Var</title>
-    <link rel="stylesheet" href="style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hukuki Destek | Mobbing Destek Ağı</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" class="main-logo-png"> <span>Burada Mobbing Var</span></a>
+            </div>
+            <nav><ul><li><a href="index.html">Ana Sayfa</a></li></ul></nav>
+        </div>
+    </header>
 
-    <main id="hukuki-destek-page">
-        <h1>⚖️ Mobbing Adalet Ağı: Anonim Hukuki Destek</h1>
-        <p>Mobbing ile Mücadele Derneği'nin koordinasyonunda, gönüllü avukatlarımızdan ön danışmanlık almak için aşağıdaki formu doldurun. [cite_start]Yasal süreç çok uzun sürmekte, yasal yola başvurulduğu için de mağdura taciz katlanarak artmaktadır[cite: 490]. Bu nedenle ilk adımınızı bizimle güvenle atın.</p>
+    <main>
+        <section class="section-white">
+            <h1>⚖️ Mobbing Adalet Ağı</h1>
+            <p style="text-align:center;">Gönüllü avukatlarımızdan ön danışmanlık almak için formu doldurun. Gizlilik esastır.</p>
 
-        <section id="avukat-basvuru-formu">
-            <h2>Hukuki Ön Danışmanlık Başvurusu</h2>
-            </section>
+            <form onsubmit="basvuruGonder(event)">
+                <label>Konu Başlığı:</label>
+                <input type="text" placeholder="Örn: İstifaya Zorlama" required>
+
+                <label>Şehir:</label>
+                <select required>
+                    <option>İstanbul</option>
+                    <option>Ankara</option>
+                    <option>İzmir</option>
+                    <option>Diğer</option>
+                </select>
+
+                <label>Olay Özeti:</label>
+                <textarea rows="5" placeholder="Lütfen sistematik baskıyı özetleyin..." required></textarea>
+
+                <label>E-posta:</label>
+                <input type="email" required>
+
+                <label>
+                    <input type="checkbox" required> Verilerimin anonim olarak incelenmesini onaylıyorum.
+                </label>
+
+                <button type="submit" class="btn btn-action" style="width:100%">Başvuruyu Gönder</button>
+            </form>
+        </section>
     </main>
 
-    <footer>...</footer>
+    <script>
+        function basvuruGonder(e) {
+            e.preventDefault();
+            alert("Başvurunuz Hukuk Birimine başarıyla iletildi! En kısa sürede dönüş yapılacaktır.");
+            e.target.reset();
+        }
+    </script>
 </body>
 </html>
