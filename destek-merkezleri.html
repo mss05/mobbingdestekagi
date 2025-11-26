@@ -2,38 +2,30 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Destek Merkezleri ve Harita | Burada Mobbing Var</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destek Merkezleri | Mobbing Destek Ağı</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header>
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" class="main-logo-png"> <span>Burada Mobbing Var</span></a></div>
+            <nav><ul><li><a href="index.html">Ana Sayfa</a></li></ul></nav>
+        </div>
+    </header>
 
-    <main id="destek-merkezleri-page">
-        <h1>📍 Size En Yakın Destek Noktaları</h1>
-        <p>Hukuki, psikolojik ve resmi yardım alabileceğiniz kurum ve kuruluşları harita üzerinde görüntüleyin. [cite_start]Mobbing mağdurlarının en çok zorlandıkları konu yasal yollara başvurma konusunda seçime zorlanmalarıdır[cite: 1090]. Bu merkezler size yol gösterecektir.</p>
-
-        <section id="map-section">
-            <div id="mobbingMap" style="height: 500px; width: 100%;"></div>
+    <main>
+        <section class="section-white">
+            <h1>📍 Size En Yakın Destek Noktaları</h1>
+            <p style="text-align:center; margin-bottom:20px;">Resmi kurumlar ve dernek merkezleri.</p>
             
-            <div id="filter-options">
-                <label for="map_filter">Destek Türünü Filtrele:</label>
-                <select id="map_filter">
-                    <option value="all">Tümü</option>
-                    <option value="hukuk">Hukuki (Barolar, Dernekler)</option>
-                    <option value="resmi">Resmi Kurumlar (TİHEK, BİMER)</option>
-                    <option value="psikoloji">Psikososyal Destek</option>
-                </select>
+            <div id="map" style="width: 100%; height: 500px; background-color: #eee; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+                <p style="color:#666;">Harita yükleniyor... (API Anahtarı Gereklidir)</p>
             </div>
         </section>
-        
-        <div id="locationList">
-            <h2>Önemli Kurumlar ve İletişim Bilgileri</h2>
-            </div>
     </main>
 
-    <footer>...</footer>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
     <script src="map-integration.js"></script>
 </body>
 </html>
