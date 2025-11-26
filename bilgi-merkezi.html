@@ -2,68 +2,59 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Mobbing Veritabanı | Burada Mobbing Var</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobbing Veritabanı | Mobbing Destek Ağı</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header> 
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="main-logo-png">
+                    <span>Burada Mobbing Var</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="bilgi-merkezi.html" style="color:var(--secondary-color)"><i class="fas fa-chart-bar"></i> Veri Merkezi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <main id="bilgi-merkezi-page">
-        <h1>📊 Mobbing Bilgi Merkezi: Verileri Sorgulayın</h1>
-        <p class="description">Mobbing ile Mücadele Derneği'nin 2025 Raporu ve güncel çağrı istatistikleri ışığında, sektörünüzdeki riskleri ve mobbingin en yaygın biçimlerini interaktif olarak filtreleyin. Veriyle hareket edin.</p>
+    <main>
+        <section class="section-white">
+            <h1>📊 Mobbing Veritabanı</h1>
+            <p style="text-align:center; max-width:700px; margin:0 auto 30px auto;">Mobbing ile Mücadele Derneği'nin 2025 Raporu verilerini filtreleyerek sektörünüzdeki riskleri görün.</p>
 
-        <section id="veriSorgulamaModulu">
-            <div class="kart">
-                <h3>VERİ FİLTRESİ</h3>
-
-                <label for="f_kategori">1. Ana Kategori:</label>
-                <select id="f_kategori" onchange="updateFiltreler()" name="f_kategori">
+            <form id="veriSorgulamaForm">
+                <label for="f_kategori">🔍 1. Kategori Seçin:</label>
+                <select id="f_kategori" onchange="updateFiltreler()">
                     <option value="sektor">Sektör ve Kurum Dağılımı</option>
-                    <option value="sikayet">Şikayet ve Saldırı Tipleri</option>
-                    <option value="fail">Mobbing Yapanın Statüsü</option>
-                    <option value="etki">Mağdurun Sağlık/Yaş Etkileri</option>
+                    <option value="fail">Mobbing Yapan Kişi (Fail)</option>
+                    <option value="sikayet">Şikayet Konuları</option>
+                    <option value="etki">Sağlık ve Psikolojik Etkiler</option>
                 </select>
 
-                <label for="f_alt_kategori">2. Detaylı Veri:</label>
-                <select id="f_alt_kategori" name="f_alt_kategori">
-                    <option value="">Lütfen Ana Kategori Seçiniz</option>
+                <label for="f_alt_kategori">📂 2. Detay Seçin:</label>
+                <select id="f_alt_kategori">
+                    <option>Önce Kategori Seçiniz...</option>
                 </select>
-                
-                <label for="f_il">3. Coğrafi Dağılım (Genel):</label>
-                <select id="f_il" name="f_il">
-                    <option value="genel">Türkiye Genel Ortalaması</option>
-                    <option value="Istanbul">İstanbul (En Yüksek Başvuru)</option>
-                    <option value="Ankara">Ankara</option>
-                    </select>
 
-                <button type="button" onclick="detayliSorgula()">Verileri Göster</button>
+                <button type="button" class="btn btn-action" onclick="detayliSorgula()" style="width:100%; justify-content:center;">Analiz Et</button>
+            </form>
+
+            <div id="sonucKarti" class="card hidden" style="margin-top:30px; border-color:var(--success);">
+                <h3 class="sonuc-baslik">Sonuç</h3>
+                <div class="big-number big-rate">--%</div>
+                <p class="veri-detay">Veri detayları burada görünecek.</p>
             </div>
-        </section>
-
-        <section id="analizSonucu">
-            <h2>🔍 Analiz Sonuç Kartı</h2>
-            <div id="sonucKarti" class="hidden">
-                <p class="sonuc-baslik"></p>
-                <div class="result-box">
-                    <p class="big-rate"></p>
-                    <p class="veri-detay"></p>
-                </div>
-            </div>
-            <p id="default-message">Lütfen yukarıdaki filtreleri kullanarak sorgulamanızı yapın.</p>
-        </section>
-
-        <section id="raporlar-indirme">
-            <h2>Kaynak Raporlar (PDF)</h2>
-            <ul>
-                <li>2025 Yılı Mobbing ile Mücadele Raporu</li>
-                <li>2023 Yılı Mobbing ile Mücadele Raporu</li>
-                <li>2024 ILO / Özyeğin Üniversitesi Araştırma Özeti</li>
-            </ul>
         </section>
     </main>
 
-    <footer>...</footer>
     <script src="veri-merkezi-logic.js"></script>
 </body>
 </html>
