@@ -1,357 +1,286 @@
 /* ==============================================================================
-   GENEL SIFIRLAMA ve TEMEL AYARLAR
+   style.css - MOBBING DESTEK AĞI KURUMSAL TEMASI
    ============================================================================== */
+
+/* 1. TEMEL AYARLAR */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif; /* Kurumsal ciddiyet için sade font */
-    line-height: 1.6;
-    color: #333; /* Koyu gri metin */
-    background-color: #f8f8f8; /* Açık gri arka plan */
-}
-
-/* Renk Paleti: Güven, Umut ve Dikkat */
 :root {
-    --color-primary: #007bff;     /* Ana Mavi (Güven) */
-    --color-primary-dark: #0056b3;
-    --color-secondary: #28a745;   /* Yeşil (Umut, Başarı) */
-    --color-danger: #dc3545;      /* Kırmızı (Kriz, Önemli Uyarı) */
-    --color-crisis: #ffc107;      /* Sarı (Dikkat, ALO 170) */
-    --color-light-gray: #f4f4f9;  /* Bölüm Ayırıcı Açık Gri */
-    --color-white: #ffffff;
+    --primary-color: #2c3e50;      /* Koyu Lacivert - Kurumsal */
+    --accent-color: #e74c3c;       /* Kırmızı - Acil Durum/Vurgu */
+    --secondary-color: #3498db;    /* Mavi - Linkler/Butonlar */
+    --bg-light: #f8f9fa;           /* Açık Gri Arka Plan */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --success: #27ae60;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
 
-/* ==============================================================================
-   HEADER ve NAVİGASYON STİLLERİ
-   ============================================================================== */
+/* 2. HEADER VE NAVİGASYON */
 header {
-    background-color: var(--color-white);
-    color: #333;
-    padding: 10px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-header .logo a {
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333;
-}
-
-header .main-logo-png {
-    height: 40px; /* Logo boyutu */
-    margin-right: 10px;
-}
-
-header h1 {
-    font-size: 1.5em;
+    color: var(--primary-color);
     font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.main-logo-png {
+    height: 50px;
+    margin-right: 15px;
 }
 
 nav ul {
+    display: flex;
     list-style: none;
-    display: flex;
+    gap: 25px;
 }
 
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #555;
-    padding: 10px 15px;
-    display: block;
-    font-size: 0.95em;
-    transition: color 0.3s, background-color 0.3s;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    color: var(--color-primary);
-    background-color: #f0f0f0;
-}
-
-/* ==============================================================================
-   HERO ALANI (ANA EKRAN)
-   ============================================================================== */
-#hero-section {
-    background-color: var(--color-primary-dark);
-    color: var(--color-white);
-    text-align: center;
-    padding: 100px 5%;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 8px;
 }
 
-#hero-section h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-    font-weight: 900;
+nav a:hover {
+    color: var(--secondary-color);
 }
 
-#hero-section .mission-statement {
-    font-size: 1.4em;
-    margin-bottom: 30px;
-    font-weight: 300;
-}
-
-/* Kriz ve Hızlı Erişim Butonları */
-.quick-links {
-    margin-top: 25px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap; /* Mobil uyumluluk için */
-    justify-content: center;
-}
-
-/* ==============================================================================
-   BUTON STİLLERİ (Genel ve Kriz)
-   ============================================================================== */
-.btn {
-    text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    white-space: nowrap; /* Tek satırda kalmasını sağlar */
-}
-
-.btn i {
-    margin-right: 8px;
-}
-
-/* Ana Aksiyon Butonu (Hukuk/Veritabanı) */
-.btn-secondary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: 2px solid var(--color-primary);
-}
-.btn-secondary:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-}
-
-/* Kriz Butonu (ALO 170) - En dikkat çekici olmalı */
-.btn-crisis {
-    background-color: var(--color-crisis); /* Sarı */
-    color: #333;
-    border: 2px solid var(--color-crisis);
-    animation: pulse 1.5s infinite; /* Aciliyet efekti */
-}
-.btn-crisis:hover {
-    background-color: #ffc83a;
-    transform: scale(1.05);
-}
-
-/* Animasyon: Kriz Butonu için atma efekti */
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
-}
-
-/* Diğer Aksiyon Butonları */
-.btn-tertiary {
-    background-color: var(--color-white);
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-}
-.btn-tertiary:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-}
-
-/* ==============================================================================
-   BÖLÜM STİLLERİ (SECTIONS)
-   ============================================================================== */
-section {
-    padding: 60px 5%;
+/* 3. HERO SECTION (ANA GİRİŞ) */
+#hero-section {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Arka plan resmi örneği */
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
     text-align: center;
+    padding: 100px 20px;
 }
 
-.section-white {
-    background-color: var(--color-white);
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
 }
 
-.section-light-gray {
-    background-color: var(--color-light-gray);
-}
-
-section h2 {
-    font-size: 2em;
+.mission-statement {
+    font-size: 1.5rem;
+    font-weight: 300;
     margin-bottom: 30px;
-    color: var(--color-primary-dark);
+    color: #ecf0f1;
 }
 
-.section-description {
-    font-size: 1.1em;
-    margin-bottom: 40px;
-}
-
-/* ==============================================================================
-   VERİ ve HAKKIMIZDA BÖLÜMLERİ (KARTLAR VE LOGOLAR)
-   ============================================================================== */
-.stat-cards {
+/* BUTONLAR */
+.quick-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 40px;
 }
 
-.stat-cards .card, .module-card {
-    background-color: var(--color-white);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-crisis {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: 2px solid var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.btn-tertiary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-action {
+    background-color: var(--primary-color);
+    color: var(--white);
+    margin-top: 20px;
+}
+
+/* 4. KARTLAR VE MODÜLLER */
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-white { background-color: var(--white); }
+.section-light-gray { background-color: var(--bg-light); }
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.stat-cards, .module-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card, .module-card {
+    background: var(--white);
     padding: 30px;
-    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform 0.3s;
+    border-top: 4px solid var(--secondary-color);
 }
 
-.stat-cards .card:hover, .module-card:hover {
+.card:hover, .module-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.stat-cards h3, .module-card h3 {
-    color: var(--color-primary);
-    margin-top: 0;
-    font-size: 1.25em;
 }
 
 .big-number {
-    font-size: 3em;
-    color: var(--color-danger); /* Mobbing verisi dikkat çekmeli */
+    font-size: 3.5rem;
     font-weight: 800;
-    margin: 10px 0;
+    color: var(--secondary-color);
+    margin: 15px 0;
 }
 
-/* Hakkımızda Bölümü Görsel/Logo Alanı */
-#hakkimizda .logo-area {
-    margin-bottom: 40px;
+/* 5. HAKKIMIZDA & LOGO ALANI */
+.logo-area {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-#hakkimizda .collab-text {
-    font-size: 1.1em;
-    color: #666;
-    margin-top: 15px;
-}
-
-#hakkimizda .text-content {
+.text-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: left;
-}
-#hakkimizda h3 {
-    color: var(--color-primary-dark);
-    margin-top: 20px;
-}
-#hakkimizda ul {
-    list-style: disc;
-    margin-left: 20px;
-    color: #555;
+    font-size: 1.1rem;
 }
 
-/* Hizmet Modülleri */
-.module-cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+/* 6. FORMLAR (Hukuki Destek & Sosyal Ağ) */
+form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.module-card h3 i {
-    margin-right: 5px;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
-.btn-module {
-    display: inline-block;
-    background-color: var(--color-secondary);
-    color: var(--color-white);
-    padding: 10px 20px;
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    text-decoration: none;
-    margin-top: 15px;
-}
-.btn-module:hover {
-    background-color: #1e8d35;
+    font-family: inherit;
 }
 
-/* ==============================================================================
-   FOOTER STİLLERİ
-   ============================================================================== */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* 7. FOOTER */
 footer {
-    background-color: #333;
-    color: #ccc;
-    padding: 30px 5%;
+    background-color: var(--primary-color);
+    color: #ecf0f1;
+    padding: 50px 20px 20px;
     text-align: center;
-    font-size: 0.9em;
 }
 
-footer a {
-    color: var(--color-crisis);
+.footer-logos img {
+    height: 40px;
+    margin: 0 15px;
+    filter: brightness(0) invert(1); /* Logoları beyaz yapar */
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
-footer a:hover {
-    text-decoration: underline;
+/* 8. MOBİL UYUMLULUK */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    nav ul { flex-direction: column; text-align: center; gap: 10px; }
+    .hero-content h1 { font-size: 2rem; }
+    .big-number { font-size: 2.5rem; }
 }
 
-.collab-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+/* Animasyon */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
 
-.footer-logo {
-    height: 40px; /* Logoların Footer'daki boyutu */
-}
-
-/* ==============================================================================
-   MOBİL UYUMLULUK (Basit Responsive Ayarlar)
-   ============================================================================== */
-@media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav ul {
-        margin-top: 10px;
-    }
-    nav ul li a {
-        padding: 8px 10px;
-    }
-    
-    #hero-section {
-        padding: 80px 5%;
-    }
-
-    .quick-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .btn {
-        width: 90%; 
-        max-width: 400px;
-    }
-
-    .stat-cards .card, .module-card {
-        width: 100%;
-        max-width: 350px;
-    }
-}
+.hidden { display: none; }
