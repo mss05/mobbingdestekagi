@@ -2,12 +2,14 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Mobbing Bilgi Merkezi: İnteraktif Veritabanı | Burada Mobbing Var</title>
+    <title>Mobbing Veritabanı | Burada Mobbing Var</title>
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header> <main id="bilgi-merkezi-page">
+    <header>...</header> 
+
+    <main id="bilgi-merkezi-page">
         <h1>📊 Mobbing Bilgi Merkezi: Verileri Sorgulayın</h1>
         <p class="description">Mobbing ile Mücadele Derneği'nin 2025 Raporu ve güncel çağrı istatistikleri ışığında, sektörünüzdeki riskleri ve mobbingin en yaygın biçimlerini interaktif olarak filtreleyin. Veriyle hareket edin.</p>
 
@@ -28,15 +30,12 @@
                     <option value="">Lütfen Ana Kategori Seçiniz</option>
                 </select>
                 
-                <label for="f_il">3. Coğrafi Dağılım (Özel Sektör):</label>
+                <label for="f_il">3. Coğrafi Dağılım (Genel):</label>
                 <select id="f_il" name="f_il">
-                    <option value="Istanbul">İstanbul</option>
+                    <option value="genel">Türkiye Genel Ortalaması</option>
+                    <option value="Istanbul">İstanbul (En Yüksek Başvuru)</option>
                     <option value="Ankara">Ankara</option>
-                    <option value="Izmir">İzmir</option>
-                    <option value="Antalya">Antalya</option>
-                    <option value="Bursa">Bursa</option>
-                    <option value="genel">Genel Türkiye Ortalaması</option>
-                </select>
+                    </select>
 
                 <button type="button" onclick="detayliSorgula()">Verileri Göster</button>
             </div>
@@ -51,20 +50,20 @@
                     <p class="veri-detay"></p>
                 </div>
             </div>
-            
             <p id="default-message">Lütfen yukarıdaki filtreleri kullanarak sorgulamanızı yapın.</p>
         </section>
 
         <section id="raporlar-indirme">
             <h2>Kaynak Raporlar (PDF)</h2>
             <ul>
-                [cite_start]<li>2025 Yılı Mobbing ile Mücadele Raporu [cite: 543]</li>
-                [cite_start]<li>2023 Yılı Mobbing ile Mücadele Raporu [cite: 2]</li>
-                [cite_start]<li>2024 ILO / Özyeğin Üniversitesi Araştırma Özeti [cite: 1226]</li>
+                <li>2025 Yılı Mobbing ile Mücadele Raporu</li>
+                <li>2023 Yılı Mobbing ile Mücadele Raporu</li>
+                <li>2024 ILO / Özyeğin Üniversitesi Araştırma Özeti</li>
             </ul>
         </section>
     </main>
 
-    <footer>...</footer> <script src="veri-merkezi-logic.js"></script>
+    <footer>...</footer>
+    <script src="veri-merkezi-logic.js"></script>
 </body>
 </html>
