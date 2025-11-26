@@ -18,14 +18,28 @@
     <main>
         <section class="section-white">
             <h1>📍 Size En Yakın Destek Noktaları</h1>
-            <p style="text-align:center; margin-bottom:20px;">Resmi kurumlar ve dernek merkezleri.</p>
+            <p style="text-align:center; margin-bottom:20px;">Resmi kurumlar, dernek merkezleri ve hukuki yardım noktaları.</p>
             
-            <div id="map" style="width: 100%; height: 500px; background-color: #eee; border-radius:10px; display:flex; align-items:center; justify-content:center;">
-                <p style="color:#666;">Harita yükleniyor... (API Anahtarı Gereklidir)</p>
+            <div id="map" style="width: 100%; height: 500px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
+            
+            <div style="margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>Önemli Adresler:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="background: #f9f9f9; padding: 15px; margin-bottom: 10px; border-left: 4px solid #2c3e50;">
+                        <strong>Mobbing ile Mücadele Derneği (Genel Merkez)</strong><br>
+                        Ataç-1 Sok. Selam Apt. No:1/14, Sıhhiye / ANKARA
+                    </li>
+                    <li style="background: #f9f9f9; padding: 15px; margin-bottom: 10px; border-left: 4px solid #e74c3c;">
+                        <strong>TİHEK (Türkiye İnsan Hakları ve Eşitlik Kurumu)</strong><br>
+                        Yüksel Caddesi No: 23, Kızılay / ANKARA
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB13H-YOPYwNS_ed9bli_xN4n12hH0tU04&callback=initMap" async defer></script>
+    
     <script src="map-integration.js"></script>
 </body>
 </html>
