@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Şeffaf İletişim Ağı | Burada Mobbing Var</title>
+    <meta name="description" content="Kanıt destekli anonim mobbing hikayelerinin paylaşıldığı platform. Bilen, bilmeyene duyuruyor.">
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>...</header>
-
-    <main id="sosyal-ag-page">
-        <h1>🗣️ Şeffaf İletişim Ağı: Kanıtları Paylaş</h1>
-        [cite_start]<p>Mobbing, çoğu zaman sinsice planlanır ve mağdur yapılanın mobbing olduğunu çok geç algılar[cite: 585]. Bu ağ, yaşanmış deneyimleri paylaşarak farkındalığı artırmayı hedefler. **Bilen, Bilmeyene Duyurur.**</p>
+    <header>...</header> <main id="sosyal-ag-page">
+        <h1>🗣️ Şeffaf İletişim Ağı: Deneyimini Paylaş</h1>
+        <p>Mobbing, çoğu zaman sinsice planlanır. Bu ağ, yaşanmış deneyimleri paylaşarak farkındalığı artırmayı hedefler ve genç kuşağın haklarını korur. </p>
 
         <section id="hikaye-paylas">
-            <h2>Anonim Hikaye/Kanıt Paylaşımı</h2>
+            <h2>Anonim Hikaye Paylaşımı</h2>
             <p>Deneyiminizi (anonimleştirilmiş yazışma ekranları, tutanaklar vb.) paylaşarak diğer mağdurlara ışık tutun. Gizliliğiniz garantimiz altındadır.</p>
-            </section>
+            <form action="/submit-story" method="POST">
+                <input type="text" placeholder="Anonim Kullanıcı Adınız" required>
+                <select required>
+                    <option value="">İlgili Sektör Seçiniz</option>
+                    <option>Sanayi Sektörü</option>
+                    <option>Mağaza/Market/Restoran</option>
+                    </select>
+                <textarea placeholder="Yaşadığınız durumu (Sistematik ve Kasıtlı olmalı) özetleyin..." rows="6" required></textarea>
+                <input type="file" accept="image/*, application/pdf"> <button type="submit" class="btn btn-primary">Hikayeyi Paylaş (Moderasyon Sonrası Yayınlanır)</button>
+            </form>
+        </section>
 
         <section id="hikaye-feed">
-            <h2>Paylaşılan Hikayeler (Şikayetvar Modeli)</h2>
-            <div class="hikaye-item">
-                </div>
+            <h2>Yakın Zamanda Paylaşılanlar</h2>
+            <p>Sunucu tarafındaki veriler (hukuki ve psikolojik onay sonrası) burada akış halinde listelenecektir.</p>
         </section>
     </main>
 
