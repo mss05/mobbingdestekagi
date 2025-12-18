@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şeffaf Ağ</title>
+    <title>Anonim Destek Ağı | Burada Mobbing Var</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,30 +17,113 @@
 
     <main>
         <section class="section-white">
-            <h1>🗣️ Şeffaf İletişim Ağı</h1>
-            <p style="text-align:center;">Anonim hikayeni paylaş, sesini duyur.</p>
-            
-            <form style="margin-bottom:40px;">
-                <label>Rumuz:</label>
-                <input type="text" placeholder="Anonim Kullanıcı">
-                <label>Hikaye:</label>
-                <textarea rows="4"></textarea>
-                <button class="btn btn-action">Paylaş</button>
-            </form>
-
-            <div class="module-cards">
-                <div class="card" style="text-align:left;">
-                    <h4>Anonim #2341</h4>
-                    <p>"Yöneticim herkesin içinde bana bağırdı..."</p>
-                    <small style="color:var(--text-light);">2 saat önce</small>
-                </div>
-                <div class="card" style="text-align:left;">
-                    <h4>Anonim #9982</h4>
-                    <p>"İstifa etmem için sürekli iş yükümü artırıyorlar."</p>
-                    <small style="color:var(--text-light);">1 gün önce</small>
+            <div class="anon-header">
+                <h1>🗣️ Anonim Duygu ve Destek Ağı</h1>
+                <p>Burası bir ifşa platformu değil, bir <strong>dayanışma alanıdır.</strong></p>
+                
+                <div class="security-badges">
+                    <div class="badge"><i class="fas fa-user-secret"></i> %100 Anonim</div>
+                    <div class="badge"><i class="fas fa-gavel"></i> Hukuki Ön Denetim</div>
+                    <div class="badge"><i class="fas fa-shield-alt"></i> Kurum Adı Sansürlenir</div>
                 </div>
             </div>
+
+            <div class="share-container" id="shareBox">
+                <div class="alert-box danger">
+                    <i class="fas fa-hand-paper"></i>
+                    <div>
+                        <strong>YAYIN POLİTİKASI:</strong>
+                        <ul style="margin-top:5px; font-size:0.9rem;">
+                            <li>Metinleriniz anında yayınlanmaz.</li>
+                            <li>Tüm gönderiler <strong>Hukuk ve Moderasyon Ekibi</strong> onayına düşer.</li>
+                            <li>Metin içinde yazdığınız <u>Şirket</u> veya <u>Şahıs</u> isimleri editörlerimizce <strong>sansürlenerek (***)</strong> yayına alınır.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form id="storyForm" onsubmit="submitStory(event)">
+                    <h3>Deneyimini Paylaş</h3>
+                    
+                    <label>Rumuz (Takma Ad):</label>
+                    <input type="text" id="rumuz" placeholder="Örn: YorgunMühendis23" required>
+
+                    <label>Sektör:</label>
+                    <select id="sektor" required>
+                        <option value="">Seçiniz...</option>
+                        <option>Sanayi / Üretim</option>
+                        <option>Mağazacılık / Perakende</option>
+                        <option>Sağlık</option>
+                        <option>Eğitim</option>
+                        <option>Diğer</option>
+                    </select>
+
+                    <label>Yaşadığınız Duygu ve Olay:</label>
+                    <textarea id="hikaye" rows="6" placeholder="Neler hissettiniz? İsim vermeden süreci anlatınız..." required></textarea>
+                    <p style="font-size:0.8rem; color:#e74c3c; margin-top:-15px; margin-bottom:20px;">*Metin içinde kurum adı geçiyorsa sistem otomatik olarak onaya düşürecektir.</p>
+
+                    <div class="legal-check">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="kvkkOnay" required>
+                            <span class="checkmark"></span>
+                            <span class="text">
+                                <a href="#" onclick="openKvkkModal()">Yayın Politikası ve KVKK Aydınlatma Metni</a>'ni okudum. Yazdığım kurum isimlerinin editörler tarafından gizlenmesini kabul ediyorum.
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-action" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> İncelemeye Gönder
+                    </button>
+                </form>
+            </div>
+
+            <div class="feed-section">
+                <h2>📢 Editör Onayından Geçenler</h2>
+                <p style="text-align:center; color:#666; margin-bottom:20px;">Kişi ve kurum haklarına zarar vermeyen, sansürlenmiş deneyimler.</p>
+                
+                <div id="feed-container" class="module-cards">
+                    <div class="card story-card">
+                        <div class="story-header">
+                            <span class="rumuz"><i class="fas fa-user-circle"></i> BeyazYaka_06</span>
+                            <span class="sektor-tag">Bilişim</span>
+                        </div>
+                        <p class="story-text">"Proje yöneticim [***] Bey, mesai saatleri dışında sürekli arayarak mobbing uyguluyordu. [***] şirketi İK departmanına bildirdim ama sonuç alamadım. Artık hukuki yola başvuruyorum."</p>
+                        <div class="story-footer">
+                            <span class="date">Bugün, 10:30</span>
+                            <span class="status"><i class="fas fa-check-double"></i> Kurum Adı Gizlenerek Onaylandı</span>
+                        </div>
+                    </div>
+
+                    <div class="card story-card">
+                        <div class="story-header">
+                            <span class="rumuz"><i class="fas fa-user-circle"></i> Tezgahtar_35</span>
+                            <span class="sektor-tag">Perakende</span>
+                        </div>
+                        <p class="story-text">"Mağaza müdürümüz kasada açık çıkmadığı halde maaşımdan kesinti yapmakla tehdit ediyor. Psikolojik olarak çok yıprandım."</p>
+                        <div class="story-footer">
+                            <span class="date">Dün</span>
+                            <span class="status"><i class="fas fa-check-circle"></i> Moderatör Onaylı</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
+
+    <div id="kvkkModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeKvkkModal()">&times;</span>
+            <h2>🔒 Yayın Politikası ve KVKK</h2>
+            <div class="kvkk-text" style="text-align: left; padding:10px; background:#f9f9f9; max-height:300px; overflow-y:auto;">
+                <p><strong>1. Ön Denetim:</strong> Hiçbir içerik, moderasyon ekibimiz okumadan sitede görünmez.</p>
+                <p><strong>2. Kurum İsimleri:</strong> Kullanıcının metin içinde yazdığı şirket, marka veya şahıs isimleri hukuki koruma gereği <strong>[***]</strong> şeklinde sansürlenir.</p>
+                <p><strong>3. Sorumluluk:</strong> Platform, sadece mağduriyetin duygusal paylaşımına aracı olur. İftira, hakaret ve hedef gösterme içeren yazılar reddedilir.</p>
+            </div>
+            <button class="btn btn-secondary" onclick="closeKvkkModal()" style="margin-top:15px; width:100%;">Anladım</button>
+        </div>
+    </div>
+
+    <script src="sosyal-ag-logic.js"></script>
 </body>
 </html>
