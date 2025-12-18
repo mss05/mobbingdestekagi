@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobbing Testi</title>
+    <title>Emsal Kararlı Mobbing Testi</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,34 +17,29 @@
 
     <main>
         <section class="section-white">
-            <h1>🧠 Mobbing Testi</h1>
-            <div id="quiz-container" style="max-width:700px; margin:0 auto; text-align:left;">
+            <h1>🧠 Yargıtay Kararlı Mobbing Testi</h1>
+            <p style="text-align:center; max-width:800px; margin:0 auto 30px;">Aşağıdaki sorular, gerçek <strong>Yargıtay Hukuk Daireleri</strong> kararlarına konu olmuş olaylardan derlenmiştir. Yaşadığınız durumun hukuki karşılığını öğrenmek için soruları cevaplayın.</p>
+
+            <div id="quiz-container" class="quiz-grid">
                 </div>
-            <button onclick="sonucGoster()" class="btn btn-action" style="display:block; margin:20px auto;">Sonucu Gör</button>
         </section>
     </main>
 
-    <script>
-        const sorular = [
-            "Yöneticiniz yeteneklerinizin altında işler veriyor mu?",
-            "İş arkadaşlarınız sizi görmezden geliyor mu?",
-            "Sürekli haksız yere tutanak tutuluyor mu?"
-        ];
+    <div id="resultModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modalIcon" style="font-size: 3rem; margin-bottom: 10px;"></div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc" style="font-size: 1.1rem; margin-bottom:20px;"></p>
+            <div class="court-decision-box">
+                <h4>⚖️ İlgili Emsal Karar:</h4>
+                <p id="modalDecision" style="font-weight:600; color:var(--primary-color);"></p>
+                <p id="modalDetail" style="font-size:0.9rem; margin-top:5px; font-style:italic;"></p>
+            </div>
+            <button class="btn btn-action" onclick="closeModal()">Tamam</button>
+        </div>
+    </div>
 
-        const container = document.getElementById('quiz-container');
-        sorular.forEach((soru, index) => {
-            container.innerHTML += `
-                <div class="card" style="margin-bottom:15px; text-align:left;">
-                    <p><strong>${index+1}.</strong> ${soru}</p>
-                    <label><input type="radio" name="s${index}" value="1"> Evet (Mobbing)</label>
-                    <label><input type="radio" name="s${index}" value="0"> Hayır</label>
-                </div>
-            `;
-        });
-
-        function sonucGoster() {
-            alert("Bu bir simülasyondur. Verdiğiniz 'Evet' cevapları sistematikse mobbing riski altındasınız.");
-        }
-    </script>
+    <script src="mobbing-testi-logic.js"></script>
 </body>
 </html>
