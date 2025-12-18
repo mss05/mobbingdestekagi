@@ -1,8 +1,8 @@
 /* ==============================================================================
-   style.css - MOBBING DESTEK AĞI TAM STİL DOSYASI
+   style.css - MOBBING DESTEK AĞI TAM VE GÜNCEL STİL DOSYASI
    ============================================================================== */
 
-/* 1. TEMEL AYARLAR VE SIFIRLAMA */
+/* 1. TEMEL AYARLAR VE SIFIRLAMA (Sitenin İskeleti) */
 :root {
     --primary-color: #2c3e50;      /* Koyu Lacivert (Kurumsal) */
     --accent-color: #e74c3c;       /* Kırmızı (Acil/Uyarı) */
@@ -30,7 +30,7 @@ body {
     min-height: 100vh;
 }
 
-/* 2. HEADER VE NAVİGASYON (MENÜ) */
+/* 2. HEADER VE MENÜ DÜZENİ */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -58,7 +58,7 @@ header {
 }
 
 .main-logo-png {
-    height: 50px; /* Logo boyutunu sınırlar */
+    height: 50px;
     width: auto;
     margin-right: 12px;
 }
@@ -84,7 +84,7 @@ nav a:hover {
     color: var(--secondary-color);
 }
 
-/* 3. HERO SECTION (ANA GİRİŞ ALANI) */
+/* 3. HERO (GİRİŞ) ALANI */
 #hero-section {
     background: linear-gradient(135deg, var(--primary-color), #34495e);
     color: var(--white);
@@ -124,13 +124,13 @@ h2 {
 
 h3 { color: var(--primary-color); margin-bottom: 15px; }
 
-/* 5. PAYDAŞ LOGOLARI (DÜZELTİLMİŞ) */
+/* 5. PAYDAŞ LOGOLARI (Sizin Kodunuz + Düzenlemeler) */
 .logo-area {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    flex-wrap: wrap; /* Mobil uyum için */
+    flex-wrap: wrap;
     margin-top: 30px;
 }
 
@@ -184,7 +184,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     margin: 10px 0;
 }
 
-/* 7. MOBBING TEST GRIDS (Sizin Kodunuz) */
+/* 7. MOBBING TEST IZGARASI (Quiz Grid) */
 .quiz-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -274,7 +274,7 @@ input, select, textarea {
     font-family: inherit;
 }
 
-/* 10. SOSYAL AĞ & UYARILAR (Sizin Kodunuz) */
+/* 10. SOSYAL AĞ ÖZEL STİLLERİ (Güncel) */
 .anon-header { text-align: center; margin-bottom: 40px; }
 
 .security-badges {
@@ -310,6 +310,7 @@ input, select, textarea {
     border-left: 5px solid var(--accent-color);
 }
 
+/* Hikaye Kartları */
 .story-card {
     text-align: left;
     border-top: 4px solid var(--secondary-color);
@@ -322,15 +323,21 @@ input, select, textarea {
 
 .rumuz { font-weight: 700; color: var(--primary-color); }
 .sektor-tag { background: #eee; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+
 .story-text { 
-    background: #fcfcfc; padding: 15px; 
-    border-left: 3px solid #ddd; border-radius: 0 5px 5px 0; 
-    font-style: italic; color: #555; margin-bottom: 15px;
+    background: #fcfcfc; 
+    padding: 15px; 
+    border-left: 3px solid #ddd; 
+    border-radius: 0 5px 5px 0; 
+    font-style: italic; 
+    color: #555; 
+    margin-bottom: 15px;
 }
+
 .story-footer { display: flex; justify-content: space-between; font-size: 0.85rem; color: #888; }
 .status { color: var(--success-color); font-weight: 600; }
 
-/* 11. POPUP MODAL (Sizin Kodunuz) */
+/* 11. POPUP MODAL */
 .modal {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -373,7 +380,7 @@ input, select, textarea {
     border-left: 5px solid var(--primary-color);
 }
 
-/* 12. FOOTER */
+/* 12. FOOTER (ALT KISIM) */
 footer {
     background-color: var(--primary-color);
     color: #ecf0f1;
@@ -398,7 +405,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* 13. ANİMASYONLAR VE MOBİL */
+/* 13. ANİMASYONLAR VE MOBİL UYUM */
 @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
