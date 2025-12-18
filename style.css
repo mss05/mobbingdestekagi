@@ -107,3 +107,42 @@
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+/* --- SIKI DENETİM STİLLERİ --- */
+
+.alert-box.danger {
+    background: #fadbd8;
+    color: #c0392b;
+    border-left: 5px solid #e74c3c;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.alert-box.danger strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.alert-box.danger ul {
+    padding-left: 20px;
+}
+
+/* Onaylandı Statusu */
+.status i {
+    margin-right: 5px;
+}
+
+/* Animasyon */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Feed alanındaki örnek kartlar için sansür stili */
+.story-text {
+    background: #fdfdfd;
+    padding: 10px;
+    border-left: 3px solid #ddd;
+    border-radius: 0 5px 5px 0;
+}
