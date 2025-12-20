@@ -2,14 +2,14 @@
    style.css - MOBBING DESTEK AĞI TAM VE GÜNCEL STİL DOSYASI
    ============================================================================== */
 
-/* 1. TEMEL AYARLAR VE SIFIRLAMA (Sitenin İskeleti) */
+/* 1. TEMEL AYARLAR VE SIFIRLAMA */
 :root {
-    --primary-color: #2c3e50;      /* Koyu Lacivert (Kurumsal) */
-    --accent-color: #e74c3c;       /* Kırmızı (Acil/Uyarı) */
-    --secondary-color: #3498db;    /* Mavi (Butonlar/Linkler) */
-    --success-color: #27ae60;      /* Yeşil (Onay) */
-    --warning-color: #f39c12;      /* Turuncu (Dikkat) */
-    --bg-light: #f8f9fa;           /* Açık Gri Arka Plan */
+    --primary-color: #2c3e50;      /* Koyu Lacivert */
+    --accent-color: #e74c3c;       /* Kırmızı */
+    --secondary-color: #3498db;    /* Mavi */
+    --success-color: #27ae60;      /* Yeşil */
+    --warning-color: #f39c12;      /* Turuncu */
+    --bg-light: #f8f9fa;           /* Açık Gri */
     --text-dark: #333333;
     --white: #ffffff;
 }
@@ -88,7 +88,7 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* ILO 190 VURGULU BUTON STİLİ */
+/* MENÜDEKİ VURGULU BUTON (KÜÇÜK) */
 .nav-btn-highlight {
     background-color: var(--accent-color);
     color: #fff !important;
@@ -127,7 +127,7 @@ nav a:hover {
     opacity: 0.9;
 }
 
-/* 4. GENEL BÖLÜM (SECTION) AYARLARI */
+/* 4. GENEL BÖLÜM AYARLARI */
 section {
     padding: 60px 20px;
     max-width: 1200px;
@@ -180,7 +180,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     font-weight: 600;
 }
 
-/* 6. KARTLAR VE İSTATİSTİKLER */
+/* 6. KARTLAR */
 .stat-cards, .module-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -206,7 +206,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     margin: 10px 0;
 }
 
-/* 7. MOBBING TEST IZGARASI */
+/* 7. MOBBING TEST GRIDS */
 .quiz-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -276,6 +276,28 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     color: var(--white);
 }
 
+/* --- YENİ EKLENEN: ANA SAYFA BÜYÜK KIRMIZI BUTON --- */
+.btn-ilo-hero {
+    background-color: #e74c3c; /* Kırmızı */
+    color: #ffffff !important; /* Yazı kesinlikle beyaz */
+    border: 2px solid #e74c3c;
+    font-size: 1.1rem;
+    padding: 14px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    animation: pulse 2s infinite;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-ilo-hero:hover {
+    background-color: #fff;
+    color: #e74c3c !important;
+    transform: translateY(-3px);
+}
+
 /* 9. FORMLAR */
 form {
     background: var(--white);
@@ -296,7 +318,7 @@ input, select, textarea {
     font-family: inherit;
 }
 
-/* 10. SOSYAL AĞ ÖZEL STİLLERİ */
+/* 10. SOSYAL AĞ & UYARILAR */
 .anon-header { text-align: center; margin-bottom: 40px; }
 
 .security-badges {
@@ -332,7 +354,6 @@ input, select, textarea {
     border-left: 5px solid var(--accent-color);
 }
 
-/* Hikaye Kartları */
 .story-card {
     text-align: left;
     border-top: 4px solid var(--secondary-color);
@@ -345,17 +366,11 @@ input, select, textarea {
 
 .rumuz { font-weight: 700; color: var(--primary-color); }
 .sektor-tag { background: #eee; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
-
 .story-text { 
-    background: #fcfcfc; 
-    padding: 15px; 
-    border-left: 3px solid #ddd; 
-    border-radius: 0 5px 5px 0; 
-    font-style: italic; 
-    color: #555; 
-    margin-bottom: 15px;
+    background: #fcfcfc; padding: 15px; 
+    border-left: 3px solid #ddd; border-radius: 0 5px 5px 0; 
+    font-style: italic; color: #555; margin-bottom: 15px;
 }
-
 .story-footer { display: flex; justify-content: space-between; font-size: 0.85rem; color: #888; }
 .status { color: var(--success-color); font-weight: 600; }
 
@@ -402,7 +417,7 @@ input, select, textarea {
     border-left: 5px solid var(--primary-color);
 }
 
-/* 12. FOOTER (ALT KISIM) */
+/* 12. FOOTER */
 footer {
     background-color: var(--primary-color);
     color: #ecf0f1;
@@ -415,7 +430,7 @@ footer {
     height: 40px;
     margin: 0 15px;
     opacity: 0.8;
-    filter: brightness(0) invert(1); /* Logoları beyaz yapar */
+    filter: brightness(0) invert(1); 
     transition: opacity 0.3s;
 }
 .footer-logos img:hover { opacity: 1; }
@@ -427,7 +442,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* 13. VERİ MERKEZİ GRAFİKLERİ (YENİ EKLENTİ) */
+/* 13. VERİ MERKEZİ GRAFİKLERİ */
 .data-card {
     text-align: left !important;
 }
