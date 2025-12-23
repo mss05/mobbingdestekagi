@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <div class="header-container">
             <div class="logo">
@@ -18,18 +19,24 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-                    <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> Veri Merkezi</a></li>
-                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> Yargıtay</a></li>
-                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> Test</a></li>
-                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> Hukuk</a></li>
-                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> Merkezler</a></li>
-                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> Şeffaf Ağ</a></li>
+                    <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> <span data-lang="nav_data">Veri Merkezi</span></a></li>
+                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> <span data-lang="nav_court">Yargıtay</span></a></li>
+                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> <span data-lang="nav_test">Test</span></a></li>
+                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> <span data-lang="nav_legal">Hukuk</span></a></li>
+                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> <span data-lang="nav_centers">Merkezler</span></a></li>
+                    <li><a href="sosyal-ag.html" style="color:var(--secondary-color)"><i class="fas fa-users"></i> <span data-lang="nav_social">Şeffaf Ağ</span></a></li>
                     
                     <li>
                         <a href="https://mss05.github.io/ilo190imzakampanya.com/" target="_blank" class="nav-btn-highlight">
-                            <i class="fas fa-file-signature"></i> İmzala (ILO 190)
+                            <i class="fas fa-file-signature"></i> <span data-lang="nav_sign">İmzala (ILO 190)</span>
                         </a>
+                    </li>
+
+                    <li style="margin-left: 10px;">
+                        <div class="lang-switch-container">
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -39,13 +46,13 @@
     <main>
         <section class="section-white">
             <div class="anon-header">
-                <h1>🗣️ Anonim Duygu ve Destek Ağı</h1>
-                <p>Burası bir ifşa platformu değil, bir <strong>dayanışma alanıdır.</strong></p>
+                <h1 data-lang="page_social_title">🗣️ Anonim Duygu ve Destek Ağı</h1>
+                <p data-lang="page_social_desc">Burası bir ifşa platformu değil, bir <strong>dayanışma alanıdır.</strong></p>
                 
                 <div class="security-badges">
-                    <div class="badge"><i class="fas fa-user-secret"></i> %100 Anonim</div>
-                    <div class="badge"><i class="fas fa-gavel"></i> Hukuki Ön Denetim</div>
-                    <div class="badge"><i class="fas fa-shield-alt"></i> Kurum Adı Sansürlenir</div>
+                    <div class="badge"><i class="fas fa-user-secret"></i> <span data-lang="badge_anon">%100 Anonim</span></div>
+                    <div class="badge"><i class="fas fa-gavel"></i> <span data-lang="badge_legal">Hukuki Ön Denetim</span></div>
+                    <div class="badge"><i class="fas fa-shield-alt"></i> <span data-lang="badge_censor">Kurum Adı Sansürlenir</span></div>
                 </div>
             </div>
 
@@ -145,6 +152,16 @@
         </div>
     </div>
 
+    <footer>
+        <div class="footer-logos">
+            <img src="logo.png" alt="Platform Logo" style="height:30px;">
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="footer_rights">&copy; 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="language.js"></script>
     <script src="sosyal-ag-logic.js"></script>
 </body>
 </html>
