@@ -1,6 +1,6 @@
 // ==============================================================================
 // Dosya: language.js
-// Amaç: Tüm metinlerin TR/EN karşılıkları
+// Amaç: Tüm metinlerin TR/EN karşılıkları ve Sayfa Yenileme Mantığı
 // ==============================================================================
 
 const translations = {
@@ -35,9 +35,17 @@ const translations = {
         // --- VERİ MERKEZİ ---
         "page_data_title": "📊 Mobbing Veri ve İstatistik Merkezi",
         "page_data_desc": "Mobbing ile Mücadele Derneği'nin 2025 Raporu verilerini filtreleyerek sektörünüzdeki riskleri görün.",
+        "lbl_search_title": "🔍 Detaylı Veri Sorgulama",
         "lbl_category": "🔍 Kategori Seçin:",
         "lbl_detail": "📂 Detay Seçin:",
         "btn_analyze": "Analiz Et",
+        
+        // Veri Merkezi Dropdown Seçenekleri (HTML içindekiler)
+        "opt_sector": "Sektör ve Kurum Dağılımı",
+        "opt_fail": "Mobbing Yapan Kişi (Fail)",
+        "opt_complaint": "Şikayet Konuları",
+        "opt_effect": "Sağlık ve Psikolojik Etkiler",
+        "opt_demo": "Demografi (Cinsiyet/Yaş)",
 
         // --- TEST SAYFASI ---
         "page_test_title": "🧠 Yargıtay Kararlı Mobbing Testi",
@@ -117,9 +125,17 @@ const translations = {
         // --- DATA CENTER ---
         "page_data_title": "📊 Mobbing Data & Statistics Center",
         "page_data_desc": "Filter the 2025 Report data of the Association for Combating Mobbing to see risks in your sector.",
+        "lbl_search_title": "🔍 Detailed Data Query",
         "lbl_category": "🔍 Select Category:",
         "lbl_detail": "📂 Select Detail:",
         "btn_analyze": "Analyze",
+
+        // Data Center Dropdown Options
+        "opt_sector": "Sector and Institution Distribution",
+        "opt_fail": "Perpetrator (Who Mobs?)",
+        "opt_complaint": "Subject of Complaints",
+        "opt_effect": "Health and Psychological Effects",
+        "opt_demo": "Demographics (Gender/Age)",
 
         // --- TEST PAGE ---
         "page_test_title": "🧠 Supreme Court Mobbing Test",
@@ -171,9 +187,12 @@ const translations = {
 };
 
 // DİL DEĞİŞTİRME FONKSİYONU
-function changeLanguage(lang) {
+// reload: true ise sayfayı yeniler (Butona basıldığında)
+// reload: false ise sadece metinleri değiştirir (Sayfa ilk açıldığında)
+function changeLanguage(lang, reload = true) {
     localStorage.setItem('selectedLang', lang);
 
+    // HTML içindeki statik metinleri değiştir
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
@@ -186,6 +205,7 @@ function changeLanguage(lang) {
         }
     });
 
+    // Butonların görünümünü güncelle
     const btnTr = document.getElementById('btn-tr');
     const btnEn = document.getElementById('btn-en');
     
@@ -198,9 +218,16 @@ function changeLanguage(lang) {
             btnTr.classList.remove('active-lang');
         }
     }
+
+    // KRİTİK KISIM: Eğer kullanıcı butona bastıysa sayfayı yenile.
+    // Bu sayede Test Soruları ve Veri Merkezi scriptleri yeni dili algılayıp baştan çalışır.
+    if (reload) {
+        window.location.reload();
+    }
 }
 
+// Sayfa açıldığında dili hatırla ve uygula (Reload yapma)
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLang') || 'tr';
-    changeLanguage(savedLang);
+    changeLanguage(savedLang, false); // false = Sayfayı yenileme, sadece metinleri koy
 });
