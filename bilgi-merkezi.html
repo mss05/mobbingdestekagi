@@ -34,8 +34,8 @@
 
                     <li style="margin-left: 10px;">
                         <div class="lang-switch-container">
-                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
-                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr', true)">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en', true)">EN</div>
                         </div>
                     </li>
                 </ul>
@@ -52,23 +52,23 @@
             </p>
 
             <div class="data-filter-box" style="background:#f1f8ff; padding:30px; border-radius:10px; border:1px solid #d0e6ff; margin-bottom:50px;">
-                <h3 style="text-align:center; margin-bottom:20px;"><i class="fas fa-search"></i> Detaylı Veri Sorgulama</h3>
+                <h3 style="text-align:center; margin-bottom:20px;"><i class="fas fa-search"></i> <span data-lang="lbl_search_title">Detaylı Veri Sorgulama</span></h3>
                 <form id="veriSorgulamaForm">
                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
                         <div>
                             <label for="f_kategori" data-lang="lbl_category">🔍 Kategori:</label>
                             <select id="f_kategori" onchange="updateFiltreler()">
-                                <option value="sektor">Sektör ve Kurum Dağılımı</option>
-                                <option value="fail">Mobbing Yapan Kişi (Fail)</option>
-                                <option value="sikayet">Şikayet Konuları</option>
-                                <option value="etki">Sağlık ve Psikolojik Etkiler</option>
-                                <option value="demografi">Demografi (Cinsiyet/Yaş)</option>
+                                <option value="sektor" data-lang="opt_sector">Sektör ve Kurum Dağılımı</option>
+                                <option value="fail" data-lang="opt_fail">Mobbing Yapan Kişi (Fail)</option>
+                                <option value="sikayet" data-lang="opt_complaint">Şikayet Konuları</option>
+                                <option value="etki" data-lang="opt_effect">Sağlık ve Psikolojik Etkiler</option>
+                                <option value="demografi" data-lang="opt_demo">Demografi (Cinsiyet/Yaş)</option>
                             </select>
                         </div>
                         <div>
                             <label for="f_alt_kategori" data-lang="lbl_detail">📂 Detay:</label>
                             <select id="f_alt_kategori">
-                                <option>Önce Kategori Seçiniz...</option>
+                                <option>---</option>
                             </select>
                         </div>
                     </div>
@@ -87,11 +87,9 @@
             <h2 style="margin-bottom:30px;">2025 Raporu: Öne Çıkan Grafikler</h2>
             
             <div class="module-cards">
-                
                 <div class="card data-card">
                     <h3>🏢 Sektörel Dağılım</h3>
                     <p class="source-note">Kaynak: 2025 Raporu</p>
-                    
                     <div class="bar-container">
                         <div class="bar-label"><span>Özel Sektör</span> <strong>%81</strong></div>
                         <div class="progress"><div class="fill" style="width:81%; background:#e74c3c;"></div></div>
@@ -100,95 +98,8 @@
                         <div class="bar-label"><span>Kamu Sektörü</span> <strong>%19</strong></div>
                         <div class="progress"><div class="fill" style="width:19%; background:#3498db;"></div></div>
                     </div>
-                    <p class="data-comment">Başvuruların büyük çoğunluğu özel sektörden gelmektedir.</p>
                 </div>
-
-                <div class="card data-card">
-                    <h3>👫 Cinsiyet Dağılımı</h3>
-                    <p class="source-note">Kaynak: 2025 Raporu</p>
-
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Erkek</span> <strong>%57</strong></div>
-                        <div class="progress"><div class="fill" style="width:57%; background:#2c3e50;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Kadın</span> <strong>%43</strong></div>
-                        <div class="progress"><div class="fill" style="width:43%; background:#9b59b6;"></div></div>
-                    </div>
-                    <p class="data-comment">Erkek çalışan başvuruları %57 ile çoğunluktadır.</p>
                 </div>
-
-                <div class="card data-card">
-                    <h3>❓ Mobbing Neden Yapılıyor?</h3>
-                    <p class="source-note">Kaynak: 2025 Raporu</p>
-
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Saldırganın Kişiliği</span> <strong>%37.5</strong></div>
-                        <div class="progress"><div class="fill" style="width:37.5%; background:#e67e22;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Örgüt Yapısı (Yönetim)</span> <strong>%24.8</strong></div>
-                        <div class="progress"><div class="fill" style="width:24.8%; background:#f1c40f;"></div></div>
-                    </div>
-                    <p class="data-comment">En büyük neden %37 ile mobbing yapan kişinin karakteridir.</p>
-                </div>
-
-                <div class="card data-card">
-                    <h3>❤️‍🩹 Sağlık Üzerindeki Etkiler</h3>
-                    <p class="source-note">Kaynak: 2025 Raporu [Grafik-11]</p>
-
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Depresif Bozukluk</span> <strong>%35.5</strong></div>
-                        <div class="progress"><div class="fill" style="width:35.5%; background:#c0392b;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Kaygı Bozukluğu</span> <strong>%22.2</strong></div>
-                        <div class="progress"><div class="fill" style="width:22.2%; background:#e74c3c;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>İlaç Tedavisi Görenler</span> <strong>%82.5</strong></div>
-                        <div class="progress"><div class="fill" style="width:82.5%; background:#2c3e50;"></div></div>
-                    </div>
-                    <p class="data-comment">Mağdurların %82'si ilaç tedavisi görmek zorunda kalıyor.</p>
-                </div>
-
-                <div class="card data-card">
-                    <h3>🏭 En Çok Şikayet Gelenler</h3>
-                    <p class="source-note">Kaynak: 2025 Raporu [Tablo-1]</p>
-
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Sanayi Sektörü (Özel)</span> <strong>7.478 Başvuru</strong></div>
-                        <div class="progress"><div class="fill" style="width:80%; background:#7f8c8d;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Mağaza/Market (Özel)</span> <strong>6.661 Başvuru</strong></div>
-                        <div class="progress"><div class="fill" style="width:70%; background:#95a5a6;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Sağlık Bakanlığı (Kamu)</span> <strong>2.982 Başvuru</strong></div>
-                        <div class="progress"><div class="fill" style="width:40%; background:#16a085;"></div></div>
-                    </div>
-                </div>
-
-                <div class="card data-card">
-                    <h3>🗣️ Saldırı Yöntemleri</h3>
-                    <p class="source-note">Kaynak: 2025 Raporu [Grafik-6,7]</p>
-
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Azarlanma / Karalanma</span> <strong>%50.1</strong></div>
-                        <div class="progress"><div class="fill" style="width:50.1%; background:#d35400;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>Görmezden Gelinme</span> <strong>%39.3</strong></div>
-                        <div class="progress"><div class="fill" style="width:39.3%; background:#e67e22;"></div></div>
-                    </div>
-                    <div class="bar-container">
-                        <div class="bar-label"><span>İstifaya Zorlama</span> <strong>%19.9</strong></div>
-                        <div class="progress"><div class="fill" style="width:19.9%; background:#f39c12;"></div></div>
-                    </div>
-                </div>
-
-            </div>
         </section>
     </main>
 
@@ -201,7 +112,7 @@
         </div>
     </footer>
 
-    <script src="veri-merkezi-logic.js"></script>
     <script src="language.js"></script>
+    <script src="veri-merkezi-logic.js"></script>
 </body>
 </html>
