@@ -1,191 +1,63 @@
 // ==============================================================================
 // Dosya: veri-merkezi-logic.js
-// Amaç: Mobbing verilerini filtrelemek ve TR/EN dil desteğiyle göstermek.
+// Amaç: TR/EN Uyumlu Veri Sorgulama
 // ==============================================================================
 
-// 1. KAPSAMLI VERİ SETİ (TR / EN Destekli)
 const mobbingVerileri = {
     sektor: {
         genel: {
-            ozel: {
-                oran: '81%', 
-                aciklama: {
-                    tr: 'Başvuruların büyük çoğunluğu (%81) Özel Sektör çalışanlarından gelmiştir.',
-                    en: 'The vast majority of applications (81%) came from Private Sector employees.'
-                }, 
-                kaynak: '2025 Raporu'
-            },
-            kamu: {
-                oran: '19%', 
-                aciklama: {
-                    tr: 'Başvuruların %19’u Kamu kurumlarından gelmektedir.',
-                    en: '19% of applications come from Public Institutions.'
-                }, 
-                kaynak: '2025 Raporu'
-            }
+            ozel: { oran: '81%', aciklama: { tr: 'Başvuruların büyük çoğunluğu Özel Sektörden.', en: 'Majority of applications are from Private Sector.' } },
+            kamu: { oran: '19%', aciklama: { tr: 'Başvuruların %19’u Kamu kurumlarından.', en: '19% of applications come from Public Institutions.' } }
         },
         ozel_detay: {
-            sanayi: {
-                oran: '6.24%', 
-                aciklama: {
-                    tr: 'Özel sektörde en çok başvuru gelen sektör Sanayi (7.478 başvuru) olmuştur.',
-                    en: 'The sector with the most applications in the private sector was Industry (7,478 applications).'
-                }, 
-                kaynak: '2025 Raporu'
-            },
-            magaza: {
-                oran: '5.56%', 
-                aciklama: {
-                    tr: 'Mağaza, Restoran ve Market sektörleri ikinci sıradadır (6.661 başvuru).',
-                    en: 'Store, Restaurant and Market sectors are in second place (6,661 applications).'
-                }, 
-                kaynak: '2025 Raporu'
-            }
+            sanayi: { oran: '6.24%', aciklama: { tr: 'Özelde en çok başvuru Sanayi sektöründen.', en: 'Most applications in private sector: Industry.' } },
+            magaza: { oran: '5.56%', aciklama: { tr: 'Mağaza/Market sektörü ikinci sırada.', en: 'Retail sector is second.' } }
         },
         kamu_detay: {
-            saglik: {
-                oran: '10.82%', 
-                aciklama: {
-                    tr: 'Kamuda en çok başvuru Sağlık Bakanlığı personelinden (2.982 adet) gelmektedir.',
-                    en: 'In the public sector, the most applications come from Ministry of Health personnel (2,982).'
-                }, 
-                kaynak: '2025 Raporu'
-            },
-            meb: {
-                oran: '5.32%', 
-                aciklama: {
-                    tr: 'Milli Eğitim Bakanlığı (Öğretmenler) ikinci sıradadır.',
-                    en: 'Ministry of National Education (Teachers) is in second place.'
-                }, 
-                kaynak: '2025 Raporu'
-            }
+            saglik: { oran: '10.82%', aciklama: { tr: 'Kamuda lider: Sağlık Bakanlığı.', en: 'Public leader: Ministry of Health.' } },
+            meb: { oran: '5.32%', aciklama: { tr: 'MEB (Öğretmenler) ikinci sırada.', en: 'Ministry of Education is second.' } }
         }
     },
     fail: {
-        amir: {
-            oran: '61.29%', 
-            aciklama: {
-                tr: 'Mobbing uygulayanların %61’i doğrudan birinci derece "Amir" statüsündedir.',
-                en: '61% of mobbers are in the status of direct first-degree "Manager".'
-            }, 
-            kaynak: '2025 Raporu'
-        },
-        arkadas: {
-            oran: '3.12%', 
-            aciklama: {
-                tr: 'Sadece iş arkadaşı (yatay mobbing) oranı %3 civarındadır.',
-                en: 'The rate of peer-only (horizontal) mobbing is around 3%.'
-            }, 
-            kaynak: '2025 Raporu'
-        }
+        amir: { oran: '61.29%', aciklama: { tr: 'Mobbingi en çok "Birinci Amir" yapıyor.', en: 'First-line managers are the top mobbers.' } },
+        arkadas: { oran: '3.12%', aciklama: { tr: 'İş arkadaşı mobbingi düşük oranda.', en: 'Peer mobbing rate is low.' } }
     },
     sikayet: {
         sebepler: {
-            isyuku: {
-                oran: '20.20%', 
-                aciklama: {
-                    tr: 'Mağdurların %20’si "İş Yükünün Artırılması" nedeniyle şikayetçi olmuştur.',
-                    en: '20% of victims complained about "Increased Workload".'
-                }, 
-                kaynak: '2025 Raporu'
-            },
-            istifa: {
-                oran: '19.95%', 
-                aciklama: {
-                    tr: 'İstifaya zorlama (Bezdiki) en yaygın ikinci yöntemdir.',
-                    en: 'Forcing resignation is the second most common method.'
-                }, 
-                kaynak: '2025 Raporu'
-            }
-        },
-        saldiri_tipleri: {
-            azarlanma: {
-                oran: '50.12%', 
-                aciklama: {
-                    tr: 'İletişim saldırılarında en çok "Azarlanma ve Karalanma" görülür.',
-                    en: '"Scolding and Smearing" are seen most in communication attacks.'
-                }, 
-                kaynak: '2025 Raporu'
-            },
-            gormezden: {
-                oran: '39.39%', 
-                aciklama: {
-                    tr: 'Sosyal ilişkilerde en çok "Görmezden Gelinme" uygulanır.',
-                    en: '"Being Ignored" is applied most in social relations.'
-                }, 
-                kaynak: '2025 Raporu'
-            }
+            isyuku: { oran: '20.20%', aciklama: { tr: 'En büyük şikayet: İş Yükünün Artırılması.', en: 'Top complaint: Increased Workload.' } },
+            istifa: { oran: '19.95%', aciklama: { tr: 'İkinci sırada: İstifaya zorlama.', en: 'Second: Forcing resignation.' } }
         }
     },
     etki: {
         psikolojik: {
-            depresyon: {
-                oran: '35.53%', 
-                aciklama: {
-                    tr: 'Mağdurların %35.53’ünde Depresif Bozukluk teşhis edilmiştir.',
-                    en: 'Depressive Disorder was diagnosed in 35.53% of the victims.'
-                }, 
-                kaynak: '2025 Raporu'
-            },
-            kaygi: {
-                oran: '22.20%', 
-                aciklama: {
-                    tr: 'Kaygı Bozukluğu (Anksiyete) ikinci sırada yer alır.',
-                    en: 'Anxiety Disorder ranks second.'
-                }, 
-                kaynak: '2025 Raporu'
-            }
-        },
-        tedavi: {
-            ilac: {
-                oran: '82.59%', 
-                aciklama: {
-                    tr: 'Mobbing mağdurlarının %82’si ilaç tedavisi görmek zorunda kalmaktadır.',
-                    en: '82% of mobbing victims have to undergo drug treatment.'
-                }, 
-                kaynak: '2025 Raporu'
-            }
+            depresyon: { oran: '35.53%', aciklama: { tr: 'Mağdurlarda Depresif Bozukluk yaygın.', en: 'Depressive Disorder is common.' } },
+            kaygi: { oran: '22.20%', aciklama: { tr: 'Kaygı Bozukluğu ikinci sırada.', en: 'Anxiety Disorder is second.' } }
         }
     }
 };
 
-// 2. FİLTRELERİ GÜNCELLEME (Dropdown Seçenekleri)
 function updateFiltreler() {
     const kategori = document.getElementById('f_kategori').value;
     const altSelect = document.getElementById('f_alt_kategori');
-    const lang = localStorage.getItem('selectedLang') || 'tr'; // Dili al
+    const lang = localStorage.getItem('selectedLang') || 'tr';
     
     altSelect.innerHTML = '';
-
     let options = {};
 
-    if(kategori === 'sektor') {
-        options = {
-            'genel.ozel': lang === 'en' ? 'Private Sector (General)' : 'Özel Sektör (Genel)',
-            'genel.kamu': lang === 'en' ? 'Public Sector (General)' : 'Kamu Sektörü (Genel)',
-            'ozel_detay.sanayi': lang === 'en' ? 'Private: Industry' : 'Özel: Sanayi Sektörü',
-            'ozel_detay.magaza': lang === 'en' ? 'Private: Retail/Store' : 'Özel: Mağaza/Market',
-            'kamu_detay.saglik': lang === 'en' ? 'Public: Ministry of Health' : 'Kamu: Sağlık Bakanlığı',
-            'kamu_detay.meb': lang === 'en' ? 'Public: Education (Teachers)' : 'Kamu: MEB (Öğretmen)'
-        };
-    } else if(kategori === 'fail') {
-        options = {
-            'fail.amir': lang === 'en' ? 'Direct Manager' : 'Doğrudan Amir',
-            'fail.arkadas': lang === 'en' ? 'Colleague' : 'İş Arkadaşı'
-        };
-    } else if(kategori === 'sikayet') {
-        options = {
-            'sikayet.sebepler.isyuku': lang === 'en' ? 'Complaint: Increased Workload' : 'Şikayet: İş Yükü Artırma',
-            'sikayet.sebepler.istifa': lang === 'en' ? 'Complaint: Forced Resignation' : 'Şikayet: İstifaya Zorlama',
-            'sikayet.saldiri_tipleri.azarlanma': lang === 'en' ? 'Attack: Scolding' : 'Saldırı: Azarlanma/Karalanma',
-            'sikayet.saldiri_tipleri.gormezden': lang === 'en' ? 'Attack: Ignoring' : 'Saldırı: Görmezden Gelinme'
-        };
-    } else if(kategori === 'etki') {
-        options = {
-            'etki.psikolojik.depresyon': lang === 'en' ? 'Effect: Depression' : 'Etki: Depresif Bozukluk',
-            'etki.psikolojik.kaygi': lang === 'en' ? 'Effect: Anxiety' : 'Etki: Kaygı Bozukluğu',
-            'etki.tedavi.ilac': lang === 'en' ? 'Treatment: Medication' : 'Tedavi: İlaç Kullanımı'
-        };
+    // DİL KONTROLÜNE GÖRE SEÇENEKLER
+    if (lang === 'en') {
+        if(kategori === 'sektor') options = { 'genel.ozel': 'Private Sector', 'genel.kamu': 'Public Sector', 'ozel_detay.sanayi': 'Industry', 'ozel_detay.magaza': 'Retail', 'kamu_detay.saglik': 'Ministry of Health', 'kamu_detay.meb': 'Ministry of Education' };
+        else if(kategori === 'fail') options = { 'fail.amir': 'Direct Manager', 'fail.arkadas': 'Colleague' };
+        else if(kategori === 'sikayet') options = { 'sikayet.sebepler.isyuku': 'Increased Workload', 'sikayet.sebepler.istifa': 'Forced Resignation' };
+        else if(kategori === 'etki') options = { 'etki.psikolojik.depresyon': 'Depression', 'etki.psikolojik.kaygi': 'Anxiety' };
+        else options = { '': 'Select Category First' };
+    } else {
+        // TÜRKÇE
+        if(kategori === 'sektor') options = { 'genel.ozel': 'Özel Sektör', 'genel.kamu': 'Kamu Sektörü', 'ozel_detay.sanayi': 'Sanayi', 'ozel_detay.magaza': 'Mağaza/Market', 'kamu_detay.saglik': 'Sağlık Bakanlığı', 'kamu_detay.meb': 'MEB (Öğretmen)' };
+        else if(kategori === 'fail') options = { 'fail.amir': 'Doğrudan Amir', 'fail.arkadas': 'İş Arkadaşı' };
+        else if(kategori === 'sikayet') options = { 'sikayet.sebepler.isyuku': 'İş Yükü Artırma', 'sikayet.sebepler.istifa': 'İstifaya Zorlama' };
+        else if(kategori === 'etki') options = { 'etki.psikolojik.depresyon': 'Depresif Bozukluk', 'etki.psikolojik.kaygi': 'Kaygı Bozukluğu' };
+        else options = { '': 'Önce Kategori Seçiniz' };
     }
 
     for (let key in options) {
@@ -196,35 +68,24 @@ function updateFiltreler() {
     }
 }
 
-// 3. SORGULAMA VE SONUÇ GÖSTERME
 function detayliSorgula() {
     const path = document.getElementById('f_alt_kategori').value.split('.');
     const kart = document.getElementById('sonucKarti');
-    const lang = localStorage.getItem('selectedLang') || 'tr'; // Dili al
+    const lang = localStorage.getItem('selectedLang') || 'tr';
     
-    // Veriye erişim (Nested object traversal)
     let veri = mobbingVerileri;
     for (let i = 0; i < path.length; i++) {
-        veri = veri[path[i]];
+        if(veri[path[i]]) veri = veri[path[i]];
+        else return;
     }
 
-    if(veri) {
-        // Başlığı seçili option'dan al
-        const seciliOption = document.getElementById('f_alt_kategori').options[document.getElementById('f_alt_kategori').selectedIndex].text;
-        
-        document.querySelector('.sonuc-baslik').innerText = seciliOption;
+    if(veri && veri.oran) {
+        const title = document.getElementById('f_alt_kategori').options[document.getElementById('f_alt_kategori').selectedIndex].text;
+        document.querySelector('.sonuc-baslik').innerText = title;
         document.querySelector('.big-rate').innerText = veri.oran;
-        
-        // Açıklamayı dile göre seç
-        const aciklamaMetni = typeof veri.aciklama === 'object' ? veri.aciklama[lang] : veri.aciklama;
-        const kaynakMetni = lang === 'en' ? "2025 Report" : "2025 Raporu";
-
-        document.querySelector('.veri-detay').innerText = aciklamaMetni + " (" + kaynakMetni + ")";
-        
+        document.querySelector('.veri-detay').innerText = veri.aciklama[lang];
         kart.classList.remove('hidden');
-        kart.style.display = 'block';
     }
 }
 
-// Sayfa yüklenince başlat
 window.onload = updateFiltreler;
