@@ -1,6 +1,6 @@
 // ==============================================================================
 // Dosya Adı: language.js
-// Amaç: Tüm site genelinde TR/EN dil geçişini ve metinleri yönetmek.
+// Amaç: Site genelinde TR/EN dil geçişini ve metinleri yönetmek.
 // ==============================================================================
 
 const translations = {
@@ -15,7 +15,7 @@ const translations = {
         "nav_social": "Şeffaf Ağ",
         "nav_sign": "İmzala (ILO 190)",
 
-        // --- ANA SAYFA (HERO & HAKKIMIZDA) ---
+        // --- ANA SAYFA (HERO) ---
         "hero_title": "Mobbing Bir İnsanlık Suçudur.",
         "hero_desc": "Türkiye, ILO 190 Sayılı Sözleşmeyi İmzalamalıdır! <br>Genç Kuşağın Onurlu Çalışma Hakkı İçin Mücadele Ediyoruz.",
         "btn_sign_hero": "İMZA KAMPANYASINA KATIL",
@@ -26,8 +26,8 @@ const translations = {
         "section_partners_title": "Güçlü İşbirliği, Güçlü Mücadele",
         "section_partners_desc": "Bu platform, aşağıdaki kurumların veri ve hukuk desteğiyle oluşturulmuştur:",
         
+        // --- HAKKIMIZDA (BİZ KİMİZ) - SİZİN METNİNİZ ---
         "about_title": "Biz Kimiz?",
-        // BURASI EKSİKSİZ İSTEDİĞİN METİN:
         "about_desc": "Biz, iş hayatına yeni atılan, umut dolu ancak kırılgan bir dönemde bulunan genç profesyonellerin (özellikle <strong>18-30 yaş</strong>) sesi olmak üzere yola çıkan bir dayanışma platformuyuz. 2025 Raporlarına göre mobbing en çok 24-33 yaş aralığını hedef almaktadır. Yargıtay kararları ışığında haklarınızı öğrenmeniz için buradayız.",
 
         // --- VERİ MERKEZİ SAYFASI ---
@@ -74,7 +74,7 @@ const translations = {
         "nav_social": "Transparent Net",
         "nav_sign": "Sign (ILO 190)",
 
-        // --- HOME PAGE ---
+        // --- HOME PAGE (HERO) ---
         "hero_title": "Mobbing is a Crime Against Humanity.",
         "hero_desc": "Turkey must sign the ILO Convention 190! <br>We fight for the Right to Decent Work for the Young Generation.",
         "btn_sign_hero": "JOIN THE CAMPAIGN",
@@ -85,8 +85,8 @@ const translations = {
         "section_partners_title": "Strong Cooperation, Strong Struggle",
         "section_partners_desc": "This platform was created with data and legal support from the following institutions:",
         
+        // --- ABOUT US (EXACT TRANSLATION) ---
         "about_title": "Who Are We?",
-        // TAM VE EKSİKSİZ ÇEVİRİ:
         "about_desc": "We are a solidarity platform setting out to be the voice of young professionals (especially <strong>18-30 years old</strong>) who are entering business life and are in a hopeful but fragile period. According to 2025 Reports, mobbing targets the 24-33 age range the most. We are here for you to learn your rights in the light of Supreme Court decisions.",
 
         // --- DATA CENTER PAGE ---
@@ -142,18 +142,18 @@ function changeLanguage(lang) {
         }
     });
 
-    // 3. Butonların görünümünü güncelle (Parlayan efekt)
+    // 3. Butonların görünümünü güncelle
     const btnTr = document.getElementById('btn-tr');
     const btnEn = document.getElementById('btn-en');
     
-    // Butonlar sayfada mevcutsa (Header yüklüyse)
+    // Butonlar sayfada mevcutsa
     if(btnTr && btnEn) {
         if (lang === 'tr') {
-            btnTr.classList.add('active-lang'); // TR parlasın
-            btnEn.classList.remove('active-lang'); // EN sönsün
+            btnTr.classList.add('active-lang');
+            btnEn.classList.remove('active-lang');
         } else {
-            btnEn.classList.add('active-lang'); // EN parlasın
-            btnTr.classList.remove('active-lang'); // TR sönsün
+            btnEn.classList.add('active-lang');
+            btnTr.classList.remove('active-lang');
         }
     }
 }
