@@ -2,11 +2,13 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emsal Yargıtay Kararları | Mobbing Destek Ağı</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <div class="header-container">
             <div class="logo">
@@ -17,18 +19,24 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-                    <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> Veri Merkezi</a></li>
-                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> Yargıtay</a></li>
-                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> Test</a></li>
-                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> Hukuk</a></li>
-                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> Merkezler</a></li>
-                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> Şeffaf Ağ</a></li>
+                    <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> <span data-lang="nav_data">Veri Merkezi</span></a></li>
+                    <li><a href="yargitay-kararlari.html" style="color:var(--secondary-color)"><i class="fas fa-balance-scale"></i> <span data-lang="nav_court">Yargıtay</span></a></li>
+                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> <span data-lang="nav_test">Test</span></a></li>
+                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> <span data-lang="nav_legal">Hukuk</span></a></li>
+                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> <span data-lang="nav_centers">Merkezler</span></a></li>
+                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> <span data-lang="nav_social">Şeffaf Ağ</span></a></li>
                     
                     <li>
                         <a href="https://mss05.github.io/ilo190imzakampanya.com/" target="_blank" class="nav-btn-highlight">
-                            <i class="fas fa-file-signature"></i> İmzala (ILO 190)
+                            <i class="fas fa-file-signature"></i> <span data-lang="nav_sign">İmzala (ILO 190)</span>
                         </a>
+                    </li>
+
+                    <li style="margin-left: 10px;">
+                        <div class="lang-switch-container">
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -37,43 +45,54 @@
 
     <main>
         <section class="section-white">
-            <h1>⚖️ Emsal Yargıtay Kararları Arşivi</h1>
-            <p style="text-align:center;">Mahkemelerin mobbing saydığı eylemler ve kararların özetleri.</p>
+            <h1 data-lang="page_court_title">⚖️ Emsal Yargıtay Kararları Arşivi</h1>
+            <p style="text-align:center;" data-lang="page_court_desc">Mahkemelerin mobbing saydığı eylemler ve kararların özetleri.</p>
 
             <div class="decision-list" style="max-width: 900px; margin: 0 auto;">
                 
                 <div class="card decision-card">
-                    <h3><i class="fas fa-gavel"></i> Yargıtay 9. Hukuk Dairesi (2014/37332)</h3>
-                    <p><strong>Konu:</strong> Sürekli haksızlık ve aşağılanma.</p>
-                    <p><strong>Karar:</strong> Teknik personelin sürekli aşağılanması ve ruh sağlığının bozulması, işçilik alacaklarının yanı sıra manevi tazminatı gerektiren psikolojik tacizdir.</p>
+                    <h3 data-lang="court_1_title"><i class="fas fa-gavel"></i> Yargıtay 9. Hukuk Dairesi (2014/37332)</h3>
+                    <p><strong data-lang="lbl_topic">Konu:</strong> <span data-lang="court_1_topic">Sürekli haksızlık ve aşağılanma.</span></p>
+                    <p><strong data-lang="lbl_ruling">Karar:</strong> <span data-lang="court_1_ruling">Teknik personelin sürekli aşağılanması ve ruh sağlığının bozulması, işçilik alacaklarının yanı sıra manevi tazminatı gerektiren psikolojik tacizdir.</span></p>
                 </div>
 
                 <div class="card decision-card">
-                    <h3><i class="fas fa-gavel"></i> Yargıtay 4. Hukuk Dairesi (2019/4695)</h3>
-                    <p><strong>Konu:</strong> Öğretmeni istifaya zorlama.</p>
-                    <p><strong>Karar:</strong> Mesleki yetersizlik dedikodusu çıkarmak, iş yükünü artırmak ve odaya çağırıp bağırmak; öğretmeni istifaya zorlamak amaçlı sistematik mobbingdir.</p>
+                    <h3 data-lang="court_2_title"><i class="fas fa-gavel"></i> Yargıtay 4. Hukuk Dairesi (2019/4695)</h3>
+                    <p><strong data-lang="lbl_topic">Konu:</strong> <span data-lang="court_2_topic">Öğretmeni istifaya zorlama.</span></p>
+                    <p><strong data-lang="lbl_ruling">Karar:</strong> <span data-lang="court_2_ruling">Mesleki yetersizlik dedikodusu çıkarmak, iş yükünü artırmak ve odaya çağırıp bağırmak; öğretmeni istifaya zorlamak amaçlı sistematik mobbingdir.</span></p>
                 </div>
 
                 <div class="card decision-card">
-                    <h3><i class="fas fa-gavel"></i> Yargıtay 9. Hukuk Dairesi (2020/14104)</h3>
-                    <p><strong>Konu:</strong> İşçiyi yıldırma taktikleri.</p>
-                    <p><strong>Karar:</strong> "Ya çalışsın ya gitsin" anlayışıyla yapılan haksız tutanaklar, görev yeri değişiklikleri ve ağır iş yükü, işçinin haklı fesih sebebidir ve tazminat gerektirir.</p>
+                    <h3 data-lang="court_3_title"><i class="fas fa-gavel"></i> Yargıtay 9. Hukuk Dairesi (2020/14104)</h3>
+                    <p><strong data-lang="lbl_topic">Konu:</strong> <span data-lang="court_3_topic">İşçiyi yıldırma taktikleri.</span></p>
+                    <p><strong data-lang="lbl_ruling">Karar:</strong> <span data-lang="court_3_ruling">"Ya çalışsın ya gitsin" anlayışıyla yapılan haksız tutanaklar, görev yeri değişiklikleri ve ağır iş yükü, işçinin haklı fesih sebebidir ve tazminat gerektirir.</span></p>
                 </div>
 
                 <div class="card decision-card">
-                    <h3><i class="fas fa-gavel"></i> Yargıtay 22. Hukuk Dairesi (2013/30811)</h3>
-                    <p><strong>Konu:</strong> Ek Çalışılan Sürenin Ücretinin Ödenmemesi.</p>
-                    <p><strong>Karar:</strong> Günlük 12-13 saati bulan çalışma süreleri ve buna eşlik eden baskı ortamı, insan haklarına aykırıdır ve mobbing unsuru taşır.</p>
+                    <h3 data-lang="court_4_title"><i class="fas fa-gavel"></i> Yargıtay 22. Hukuk Dairesi (2013/30811)</h3>
+                    <p><strong data-lang="lbl_topic">Konu:</strong> <span data-lang="court_4_topic">Ek Çalışılan Sürenin Ücretinin Ödenmemesi.</span></p>
+                    <p><strong data-lang="lbl_ruling">Karar:</strong> <span data-lang="court_4_ruling">Günlük 12-13 saati bulan çalışma süreleri ve buna eşlik eden baskı ortamı, insan haklarına aykırıdır ve mobbing unsuru taşır.</span></p>
                 </div>
 
-                 <div class="card decision-card">
-                    <h3><i class="fas fa-gavel"></i> Yargıtay 9. Hukuk Dairesi (2018/16436)</h3>
-                    <p><strong>Konu:</strong> Hakaret ve Yönetimin Sessizliği.</p>
-                    <p><strong>Karar:</strong> Departman sorumlusunun hakaretlerinin yönetime bildirilmesine rağmen önlem alınmaması, işverenin mobbingden sorumlu tutulmasına neden olur.</p>
+                <div class="card decision-card">
+                    <h3 data-lang="court_5_title"><i class="fas fa-gavel"></i> Yargıtay 9. Hukuk Dairesi (2018/16436)</h3>
+                    <p><strong data-lang="lbl_topic">Konu:</strong> <span data-lang="court_5_topic">Hakaret ve Yönetimin Sessizliği.</span></p>
+                    <p><strong data-lang="lbl_ruling">Karar:</strong> <span data-lang="court_5_ruling">Departman sorumlusunun hakaretlerinin yönetime bildirilmesine rağmen önlem alınmaması, işverenin mobbingden sorumlu tutulmasına neden olur.</span></p>
                 </div>
 
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="footer-logos">
+            <img src="logo.png" alt="Platform Logo" style="height:30px;">
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="footer_rights">&copy; 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="language.js"></script>
 </body>
 </html>
