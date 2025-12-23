@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burada Mobbing Var | Mobbing Destek Ağı</title>
+    <title>Burada Mobbing Var | Genç Çalışan Dayanışma Ağı</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,11 +19,6 @@
             </div>
             <nav>
                 <ul>
-                    <li class="lang-switch">
-                        <span id="btn-tr" onclick="changeLanguage('tr')">TR</span> | 
-                        <span id="btn-en" onclick="changeLanguage('en')">EN</span>
-                    </li>
-
                     <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> <span data-lang="nav_data">Veri Merkezi</span></a></li>
                     <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> <span data-lang="nav_court">Yargıtay</span></a></li>
                     <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> <span data-lang="nav_test">Test</span></a></li>
@@ -36,56 +31,76 @@
                             <i class="fas fa-file-signature"></i> <span data-lang="nav_sign">İmzala (ILO 190)</span>
                         </a>
                     </li>
+
+                    <li style="margin-left: 10px;">
+                        <div class="lang-switch-container">
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="hero-section">
+    <section id="hero-section">
         <div class="hero-content">
             <h1 data-lang="hero_title">Mobbing Bir İnsanlık Suçudur.</h1>
-            <p class="mission-statement" data-lang="hero_desc">Türkiye, ILO 190 Sayılı Sözleşmeyi İmzalamalıdır! <br>Genç Kuşağın Onurlu Çalışma Hakkı İçin Mücadele Ediyoruz.</p>
+            <p class="mission-statement" data-lang="hero_desc">
+                Türkiye, ILO 190 Sayılı Sözleşmeyi İmzalamalıdır! <br>
+                Genç Kuşağın Onurlu Çalışma Hakkı İçin Mücadele Ediyoruz.
+            </p>
             
             <div class="quick-links">
-                <a href="https://mss05.github.io/ilo190imzakampanya.com/" target="_blank" class="btn btn-ilo-hero">
+                <a href="https://mss05.github.io/ilo190imzakampanya.com/" target="_blank" class="btn-ilo-hero">
                     <i class="fas fa-file-signature"></i> <span data-lang="btn_sign_hero">İMZA KAMPANYASINA KATIL</span>
                 </a>
-
+                
                 <a href="tel:170" class="btn btn-crisis">
-                    <i class="fas fa-phone"></i> <span data-lang="btn_crisis">ACİL DESTEK (ALO 170)</span>
+                    <i class="fas fa-phone-volume"></i> <span data-lang="btn_crisis">ACİL DESTEK (ALO 170)</span>
                 </a>
+                
                 <a href="hukuki-destek.html" class="btn btn-secondary">
-                    <i class="fas fa-user-shield"></i> <span data-lang="btn_anon">Anonim Danışmanlık</span>
+                    <i class="fas fa-user-secret"></i> <span data-lang="btn_anon">Anonim Danışmanlık</span>
                 </a>
+                
                 <a href="mobbing-testi.html" class="btn btn-tertiary">
-                    <i class="fas fa-clipboard-list"></i> <span data-lang="btn_test_hero">Yargıtay Kararlı Test</span>
+                    <i class="fas fa-clipboard-check"></i> <span data-lang="btn_test_hero">Yargıtay Kararlı Test</span>
                 </a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <section class="section-white">
+    <section class="section-white" style="text-align: center;">
         <h2 data-lang="section_partners_title">Güçlü İşbirliği, Güçlü Mücadele</h2>
-        <p style="text-align:center; margin-bottom:30px;" data-lang="section_partners_desc">Bu platform, aşağıdaki kurumların veri ve hukuk desteğiyle oluşturulmuştur:</p>
+        <p data-lang="section_partners_desc">Bu platform, aşağıdaki kurumların veri ve hukuk desteğiyle oluşturulmuştur:</p>
         
         <div class="logo-area">
             <div class="partner-item">
-                <img src="ngologo.jpg" alt="Mobbing ile Mücadele Derneği">
+                <img src="https://upload.wikimedia.org/wikipedia/tr/8/82/T%C3%BCrkiye_Barolar_Birli%C4%9Fi_logosu.png" alt="TBB">
+                <p>Türkiye Barolar Birliği</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://www.mobbing.org.tr/wp-content/uploads/2021/01/mobbing-ile-mucadele-dernegi-logo.png" alt="Mobbing Derneği">
                 <p>Mobbing ile Mücadele Derneği</p>
             </div>
             <div class="partner-item">
-                <img src="koop_logo.png" alt="Koop-İş Sendikası">
-                <p>Koop-İş Sendikası</p>
+                <img src="https://disk.org.tr/wp-content/uploads/2021/06/DISK-Logo.png" alt="DİSK">
+                <p>Genç İşçi Komisyonu</p>
             </div>
             <div class="partner-item">
-                <img src="ishukukudernegi.png" alt="İş Hukuku ve Sosyal Güvenlik Hukuku Derneği">
-                <p>İş Hukuku ve Sosyal Güvenlik Hukuku Derneği</p>
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_n-s9E-7QJtqJ-qJqJ-qJqJ-qJqJ-qJqJ-qJqJ=s900-c-k-c0x00ffffff-no-rj" alt="ILO">
+                <p>ILO Türkiye Ofisi</p>
             </div>
         </div>
+    </section>
 
-        <div class="text-content" style="margin-top:40px;">
-            <h3 data-lang="about_title">Biz Kimiz?</h3>
-            <p data-lang="about_desc">Biz, iş hayatına yeni atılan, umut dolu ancak kırılgan bir dönemde bulunan genç profesyonellerin (özellikle <strong>18-30 yaş</strong>) sesi olmak üzere yola çıkan bir dayanışma platformuyuz. 2025 Raporlarına göre mobbing en çok 24-33 yaş aralığını hedef almaktadır. Yargıtay kararları ışığında haklarınızı öğrenmeniz için buradayız.</p>
+    <section class="section-light-gray">
+        <h2 data-lang="about_title">Biz Kimiz?</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
+            <p data-lang="about_desc">
+                Biz, iş hayatına yeni atılan, umut dolu ancak kırılgan bir dönemde bulunan genç profesyonellerin (özellikle <strong>18-30 yaş</strong>) sesi olmak üzere yola çıkan bir dayanışma platformuyuz. 2025 Raporlarına göre mobbing en çok 24-33 yaş aralığını hedef almaktadır. Yargıtay kararları ışığında haklarınızı öğrenmeniz için buradayız.
+            </p>
         </div>
     </section>
 
@@ -94,11 +109,10 @@
             <img src="logo.png" alt="Platform Logo" style="height:30px;">
         </div>
         <div class="footer-bottom">
-            <p data-lang="footer_rights">&copy; 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır.</p>
+            <p data-lang="footer_rights">© 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
 
     <script src="language.js"></script>
-
 </body>
 </html>
