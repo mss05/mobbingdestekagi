@@ -1,5 +1,6 @@
 // ==============================================================================
-// Dosya Adı: language.js (TÜM SAYFALAR DAHİL)
+// Dosya Adı: language.js
+// Amaç: Tüm site genelinde TR/EN dil geçişini ve metinleri yönetmek.
 // ==============================================================================
 
 const translations = {
@@ -14,17 +15,20 @@ const translations = {
         "nav_social": "Şeffaf Ağ",
         "nav_sign": "İmzala (ILO 190)",
 
-        // --- ANA SAYFA ---
+        // --- ANA SAYFA (HERO & HAKKIMIZDA) ---
         "hero_title": "Mobbing Bir İnsanlık Suçudur.",
         "hero_desc": "Türkiye, ILO 190 Sayılı Sözleşmeyi İmzalamalıdır! <br>Genç Kuşağın Onurlu Çalışma Hakkı İçin Mücadele Ediyoruz.",
         "btn_sign_hero": "İMZA KAMPANYASINA KATIL",
         "btn_crisis": "ACİL DESTEK (ALO 170)",
         "btn_anon": "Anonim Danışmanlık",
         "btn_test_hero": "Yargıtay Kararlı Test",
+        
         "section_partners_title": "Güçlü İşbirliği, Güçlü Mücadele",
         "section_partners_desc": "Bu platform, aşağıdaki kurumların veri ve hukuk desteğiyle oluşturulmuştur:",
+        
         "about_title": "Biz Kimiz?",
-        "about_desc": "Biz, iş hayatına yeni atılan genç profesyonellerin sesiyiz.",
+        // BURASI EKSİKSİZ İSTEDİĞİN METİN:
+        "about_desc": "Biz, iş hayatına yeni atılan, umut dolu ancak kırılgan bir dönemde bulunan genç profesyonellerin (özellikle <strong>18-30 yaş</strong>) sesi olmak üzere yola çıkan bir dayanışma platformuyuz. 2025 Raporlarına göre mobbing en çok 24-33 yaş aralığını hedef almaktadır. Yargıtay kararları ışığında haklarınızı öğrenmeniz için buradayız.",
 
         // --- VERİ MERKEZİ SAYFASI ---
         "page_data_title": "📊 Mobbing Veri ve İstatistik Merkezi",
@@ -35,7 +39,7 @@ const translations = {
 
         // --- MOBBING TESTİ SAYFASI ---
         "page_test_title": "🧠 Yargıtay Kararlı Mobbing Testi",
-        "page_test_desc": "Yaşadığınız durumun hukuki karşılığını öğrenmek için soruları cevaplayın.",
+        "page_test_desc": "Aşağıdaki sorular, gerçek <strong>Yargıtay Hukuk Daireleri</strong> kararlarına konu olmuş olaylardan derlenmiştir. Yaşadığınız durumun hukuki karşılığını öğrenmek için soruları cevaplayın.",
 
         // --- HUKUKİ DESTEK SAYFASI ---
         "page_legal_title": "⚖️ Mobbing Adalet Ağı",
@@ -77,21 +81,24 @@ const translations = {
         "btn_crisis": "EMERGENCY (ALO 170)",
         "btn_anon": "Anonymous Support",
         "btn_test_hero": "Take the Test",
+        
         "section_partners_title": "Strong Cooperation, Strong Struggle",
         "section_partners_desc": "This platform was created with data and legal support from the following institutions:",
+        
         "about_title": "Who Are We?",
-        "about_desc": "We are the voice of young professionals entering business life.",
+        // TAM VE EKSİKSİZ ÇEVİRİ:
+        "about_desc": "We are a solidarity platform setting out to be the voice of young professionals (especially <strong>18-30 years old</strong>) who are entering business life and are in a hopeful but fragile period. According to 2025 Reports, mobbing targets the 24-33 age range the most. We are here for you to learn your rights in the light of Supreme Court decisions.",
 
         // --- DATA CENTER PAGE ---
         "page_data_title": "📊 Mobbing Data & Statistics Center",
-        "page_data_desc": "Filter the 2025 Report data to see risks in your sector.",
+        "page_data_desc": "Filter the 2025 Report data of the Association for Combating Mobbing to see risks in your sector.",
         "lbl_category": "🔍 Select Category:",
         "lbl_detail": "📂 Select Detail:",
         "btn_analyze": "Analyze",
 
         // --- MOBBING TEST PAGE ---
         "page_test_title": "🧠 Supreme Court Mobbing Test",
-        "page_test_desc": "Answer the questions to learn the legal equivalent of your situation.",
+        "page_test_desc": "The questions below are compiled from real <strong>Supreme Court</strong> cases. Answer the questions to learn the legal equivalent of your situation.",
 
         // --- LEGAL SUPPORT PAGE ---
         "page_legal_title": "⚖️ Mobbing Justice Network",
@@ -119,13 +126,14 @@ const translations = {
 
 // DİL DEĞİŞTİRME FONKSİYONU
 function changeLanguage(lang) {
+    // 1. Seçimi kaydet
     localStorage.setItem('selectedLang', lang);
 
-    // Data-lang etiketli elementleri bul ve değiştir
+    // 2. Metinleri güncelle
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translations[lang][key];
             } else {
@@ -134,17 +142,23 @@ function changeLanguage(lang) {
         }
     });
 
-    // Buton Stili Güncelle (Varsa)
+    // 3. Butonların görünümünü güncelle (Parlayan efekt)
     const btnTr = document.getElementById('btn-tr');
     const btnEn = document.getElementById('btn-en');
     
+    // Butonlar sayfada mevcutsa (Header yüklüyse)
     if(btnTr && btnEn) {
-        btnTr.classList.toggle('active-lang', lang === 'tr');
-        btnEn.classList.toggle('active-lang', lang === 'en');
+        if (lang === 'tr') {
+            btnTr.classList.add('active-lang'); // TR parlasın
+            btnEn.classList.remove('active-lang'); // EN sönsün
+        } else {
+            btnEn.classList.add('active-lang'); // EN parlasın
+            btnTr.classList.remove('active-lang'); // TR sönsün
+        }
     }
 }
 
-// Sayfa yüklendiğinde hafızadaki dili uygula
+// Sayfa açıldığında dili hatırla ve uygula
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLang') || 'tr';
     changeLanguage(savedLang);
