@@ -34,8 +34,8 @@
 
                     <li style="margin-left: 10px;">
                         <div class="lang-switch-container">
-                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
-                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr', true)">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en', true)">EN</div>
                         </div>
                     </li>
                 </ul>
@@ -47,7 +47,7 @@
         <section class="section-white">
             <div class="anon-header">
                 <h1 data-lang="page_social_title">🗣️ Anonim Duygu ve Destek Ağı</h1>
-                <p data-lang="page_social_desc">Burası bir ifşa platformu değil, bir <strong>dayanışma alanıdır.</strong></p>
+                <p data-lang="page_social_desc">Burası bir ifşa platformu değil, bir dayanışma alanıdır.</p>
                 
                 <div class="security-badges">
                     <div class="badge"><i class="fas fa-user-secret"></i> <span data-lang="badge_anon">%100 Anonim</span></div>
@@ -60,24 +60,24 @@
                 <div class="alert-box danger">
                     <i class="fas fa-hand-paper"></i>
                     <div>
-                        <strong>YAYIN POLİTİKASI:</strong>
+                        <strong data-lang="policy_title">YAYIN POLİTİKASI:</strong>
                         <ul style="margin-top:5px; font-size:0.9rem;">
-                            <li>Metinleriniz anında yayınlanmaz.</li>
-                            <li>Tüm gönderiler <strong>Hukuk ve Moderasyon Ekibi</strong> onayına düşer.</li>
-                            <li>Metin içinde yazdığınız <u>Şirket</u> veya <u>Şahıs</u> isimleri editörlerimizce <strong>sansürlenerek (***)</strong> yayına alınır.</li>
+                            <li data-lang="policy_1">Metinleriniz anında yayınlanmaz.</li>
+                            <li data-lang="policy_2">Tüm gönderiler Hukuk ve Moderasyon Ekibi onayına düşer.</li>
+                            <li data-lang="policy_3">Metin içinde yazdığınız Şirket veya Şahıs isimleri sansürlenerek (***) yayına alınır.</li>
                         </ul>
                     </div>
                 </div>
 
                 <form id="storyForm" onsubmit="submitStory(event)">
-                    <h3>Deneyimini Paylaş</h3>
+                    <h3 data-lang="form_story_title">Deneyimini Paylaş</h3>
                     
-                    <label>Rumuz (Takma Ad):</label>
-                    <input type="text" id="rumuz" placeholder="Örn: YorgunMühendis23" required>
+                    <label data-lang="lbl_rumuz">Rumuz (Takma Ad):</label>
+                    <input type="text" id="rumuz" placeholder="Örn: YorgunMühendis23" data-lang="ph_rumuz" required>
 
-                    <label>Sektör:</label>
+                    <label data-lang="lbl_sector">Sektör:</label>
                     <select id="sektor" required>
-                        <option value="">Seçiniz...</option>
+                        <option value="">---</option>
                         <option>Sanayi / Üretim</option>
                         <option>Mağazacılık / Perakende</option>
                         <option>Sağlık</option>
@@ -85,29 +85,29 @@
                         <option>Diğer</option>
                     </select>
 
-                    <label>Yaşadığınız Duygu ve Olay:</label>
-                    <textarea id="hikaye" rows="6" placeholder="Neler hissettiniz? İsim vermeden süreci anlatınız..." required></textarea>
-                    <p style="font-size:0.8rem; color:#e74c3c; margin-top:-15px; margin-bottom:20px;">*Metin içinde kurum adı geçiyorsa sistem otomatik olarak onaya düşürecektir.</p>
+                    <label data-lang="lbl_story">Yaşadığınız Duygu ve Olay:</label>
+                    <textarea id="hikaye" rows="6" placeholder="Neler hissettiniz? İsim vermeden süreci anlatınız..." data-lang="ph_story" required></textarea>
+                    <p style="font-size:0.8rem; color:#e74c3c; margin-top:-15px; margin-bottom:20px;" data-lang="warn_censor">*Metin içinde kurum adı geçiyorsa sistem otomatik olarak onaya düşürecektir.</p>
 
                     <div class="legal-check">
                         <label class="checkbox-container">
                             <input type="checkbox" id="kvkkOnay" required>
                             <span class="checkmark"></span>
                             <span class="text">
-                                <a href="#" onclick="openKvkkModal()">Yayın Politikası ve KVKK Aydınlatma Metni</a>'ni okudum. Yazdığım kurum isimlerinin editörler tarafından gizlenmesini kabul ediyorum.
+                                <a href="#" onclick="openKvkkModal()" data-lang="chk_kvkk_text">Yayın Politikası ve KVKK Aydınlatma Metni'ni okudum. Sansürü kabul ediyorum.</a>
                             </span>
                         </label>
                     </div>
 
                     <button type="submit" class="btn btn-action" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> İncelemeye Gönder
+                        <i class="fas fa-paper-plane"></i> <span data-lang="btn_send_story">İncelemeye Gönder</span>
                     </button>
                 </form>
             </div>
 
             <div class="feed-section">
-                <h2>📢 Editör Onayından Geçenler</h2>
-                <p style="text-align:center; color:#666; margin-bottom:20px;">Kişi ve kurum haklarına zarar vermeyen, sansürlenmiş deneyimler.</p>
+                <h2 data-lang="feed_title">📢 Editör Onayından Geçenler</h2>
+                <p style="text-align:center; color:#666; margin-bottom:20px;" data-lang="feed_desc">Kişi ve kurum haklarına zarar vermeyen, sansürlenmiş deneyimler.</p>
                 
                 <div id="feed-container" class="module-cards">
                     <div class="card story-card">
