@@ -1,5 +1,5 @@
 /* ==============================================================================
-   style.css - MOBBING DESTEK AĞI (DÜZELTİLMİŞ FİNAL SÜRÜM)
+   style.css - MOBBING DESTEK AĞI (FİNAL OPTİMİZE SÜRÜM)
    ============================================================================== */
 
 /* 1. TEMEL AYARLAR VE SIFIRLAMA */
@@ -30,7 +30,7 @@ body {
     min-height: 100vh;
 }
 
-/* 2. HEADER VE MENÜ DÜZENİ (DÜZELTİLDİ) */
+/* 2. HEADER VE MENÜ DÜZENİ */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -42,7 +42,7 @@ header {
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px 20px; /* Padding biraz azaltıldı */
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,12 +56,12 @@ header {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 700;
-    font-size: 1.3rem; /* Logo yazısı biraz küçültüldü */
-    white-space: nowrap; /* Logo yazısı kırılmasın */
+    font-size: 1.3rem;
+    white-space: nowrap;
 }
 
 .main-logo-png {
-    height: 45px; /* Logo boyutu optimize edildi */
+    height: 45px;
     width: auto;
     margin-right: 10px;
 }
@@ -69,9 +69,9 @@ header {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 8px; /* Linkler arası boşluk daraltıldı */
+    gap: 10px; /* Linkler arası boşluk */
     align-items: center;
-    flex-wrap: wrap; /* Menü sığmazsa taşmasın, alta geçsin */
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -79,7 +79,7 @@ nav a {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 600;
-    font-size: 0.85rem; /* Font boyutu dengelendi */
+    font-size: 0.9rem;
     transition: all 0.3s;
     display: flex;
     align-items: center;
@@ -98,11 +98,11 @@ nav a:hover {
 .nav-btn-highlight {
     background-color: var(--accent-color);
     color: #fff !important;
-    padding: 6px 12px;
+    padding: 6px 15px;
     border-radius: 20px;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-size: 0.8rem; /* Buton fontu uyumlu hale getirildi */
+    font-size: 0.85rem;
 }
 
 .nav-btn-highlight:hover {
@@ -110,39 +110,38 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* --- DİL DEĞİŞTİRME BUTONU (DÜZELTİLDİ: TIKLANABİLİR GÖRÜNÜM) --- */
-.lang-switch {
-    background: #fff;
-    padding: 4px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.85rem;
-    color: #777;
-    border: 2px solid #ddd;
+/* --- DİL DEĞİŞTİRME BUTONU (YENİ VE MODERN TASARIM) --- */
+/* Bu kısım butonları "Hap" şeklinde yapar */
+.lang-switch-container {
     display: flex;
     align-items: center;
-    gap: 2px;
-    margin-right: 10px;
+    background: #e9ecef; /* Gri Zemin */
+    padding: 4px;
+    border-radius: 30px; /* Yuvarlak kenarlar */
+    border: 1px solid #ced4da;
+    margin-left: 10px;
 }
 
-.lang-switch span {
+.lang-btn {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
     cursor: pointer;
-    padding: 4px 10px;
-    border-radius: 15px;
-    transition: all 0.3s;
-    display: inline-block;
+    transition: all 0.3s ease;
+    color: #7f8c8d; /* Pasif renk */
+    user-select: none;
 }
 
-.lang-switch span:hover {
-    background-color: #eee;
+.lang-btn:hover {
     color: var(--primary-color);
 }
 
-/* Seçili Dil Stili (Aktif Buton Görünümü) */
+/* SEÇİLİ OLAN DİL (PARLAYAN KISIM) */
 .active-lang {
-    background-color: var(--primary-color) !important;
-    color: #fff !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background-color: var(--primary-color) !important; /* Lacivert */
+    color: #fff !important; /* Beyaz Yazı */
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.4); /* Gölge */
 }
 
 /* 3. HERO (GİRİŞ) ALANI */
@@ -187,27 +186,27 @@ h2 {
     font-size: 2rem;
 }
 
-/* 5. PAYDAŞ LOGOLARI (DÜZELTİLDİ: TAŞMA ÖNLENDİ) */
+/* 5. PAYDAŞ LOGOLARI */
 .logo-area {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    flex-wrap: wrap; /* Mobilde alta geçsin */
+    flex-wrap: wrap;
     margin-top: 30px;
 }
 
 .partner-item {
     text-align: center;
-    width: 180px; /* Genişlik sınırlandı */
+    width: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .partner-item img {
-    max-width: 100%; /* Resim kutudan taşmasın */
-    height: 70px; /* Yükseklik sınırlandı */
+    max-width: 100%;
+    height: 70px;
     object-fit: contain;
     margin-bottom: 10px;
     transition: transform 0.3s;
@@ -312,7 +311,7 @@ h2 {
     color: var(--white);
 }
 
-/* --- ANA SAYFA BÜYÜK KIRMIZI BUTON --- */
+/* ANA SAYFA BÜYÜK KIRMIZI BUTON */
 .btn-ilo-hero {
     background-color: #e74c3c;
     color: #ffffff !important;
@@ -326,7 +325,7 @@ h2 {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    max-width: 90%; /* Mobilde taşmasın */
+    max-width: 90%;
 }
 
 .btn-ilo-hero:hover {
