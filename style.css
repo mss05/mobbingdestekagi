@@ -1,5 +1,5 @@
 /* ==============================================================================
-   style.css - MOBBING DESTEK AĞI TAM VE GÜNCEL STİL DOSYASI
+   style.css - MOBBING DESTEK AĞI (DÜZELTİLMİŞ FİNAL SÜRÜM)
    ============================================================================== */
 
 /* 1. TEMEL AYARLAR VE SIFIRLAMA */
@@ -30,7 +30,7 @@ body {
     min-height: 100vh;
 }
 
-/* 2. HEADER VE MENÜ DÜZENİ */
+/* 2. HEADER VE MENÜ DÜZENİ (DÜZELTİLDİ) */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -42,10 +42,12 @@ header {
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 10px 20px; /* Padding biraz azaltıldı */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Sığmazsa aşağı geçsin */
+    gap: 15px;
 }
 
 .logo a {
@@ -54,86 +56,93 @@ header {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.3rem; /* Logo yazısı biraz küçültüldü */
+    white-space: nowrap; /* Logo yazısı kırılmasın */
 }
 
 .main-logo-png {
-    height: 50px;
+    height: 45px; /* Logo boyutu optimize edildi */
     width: auto;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 15px;
+    gap: 8px; /* Linkler arası boşluk daraltıldı */
     align-items: center;
+    flex-wrap: wrap; /* Menü sığmazsa taşmasın, alta geçsin */
+    justify-content: center;
 }
 
 nav a {
     text-decoration: none;
     color: var(--text-dark);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.3s;
+    font-weight: 600;
+    font-size: 0.85rem; /* Font boyutu dengelendi */
+    transition: all 0.3s;
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 10px;
+    gap: 5px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
 nav a:hover {
     color: var(--secondary-color);
     background-color: #f0f0f0;
-    border-radius: 5px;
 }
 
 /* MENÜDEKİ VURGULU BUTON (KÜÇÜK) */
 .nav-btn-highlight {
     background-color: var(--accent-color);
     color: #fff !important;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.2s, background-color 0.2s;
+    font-size: 0.8rem; /* Buton fontu uyumlu hale getirildi */
 }
 
 .nav-btn-highlight:hover {
     background-color: #c0392b;
     transform: scale(1.05);
-    color: #fff !important;
-    text-decoration: none;
 }
 
-/* --- DİL DEĞİŞTİRME BUTONU (YENİ EKLENDİ) --- */
+/* --- DİL DEĞİŞTİRME BUTONU (DÜZELTİLDİ: TIKLANABİLİR GÖRÜNÜM) --- */
 .lang-switch {
-    background: #f1f1f1;
-    padding: 5px 12px;
+    background: #fff;
+    padding: 4px;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #777;
-    cursor: default;
+    border: 2px solid #ddd;
     display: flex;
     align-items: center;
-    gap: 5px;
-    border: 1px solid #ddd;
+    gap: 2px;
+    margin-right: 10px;
 }
 
 .lang-switch span {
     cursor: pointer;
-    transition: color 0.3s;
+    padding: 4px 10px;
+    border-radius: 15px;
+    transition: all 0.3s;
+    display: inline-block;
 }
 
 .lang-switch span:hover {
+    background-color: #eee;
     color: var(--primary-color);
 }
 
+/* Seçili Dil Stili (Aktif Buton Görünümü) */
 .active-lang {
-    color: var(--secondary-color) !important;
-    text-decoration: underline;
-    font-weight: 800;
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* 3. HERO (GİRİŞ) ALANI */
@@ -141,25 +150,29 @@ nav a:hover {
     background: linear-gradient(135deg, var(--primary-color), #34495e);
     color: var(--white);
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
 }
 
 .hero-content h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     margin-bottom: 15px;
     font-weight: 800;
+    line-height: 1.2;
 }
 
 .mission-statement {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 30px;
-    opacity: 0.9;
+    opacity: 0.95;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 4. GENEL BÖLÜM AYARLARI */
 section {
-    padding: 60px 20px;
+    padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -170,33 +183,31 @@ section {
 h2 {
     text-align: center;
     color: var(--primary-color);
-    margin-bottom: 40px;
-    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
-h3 { color: var(--primary-color); margin-bottom: 15px; }
-
-/* 5. PAYDAŞ LOGOLARI */
+/* 5. PAYDAŞ LOGOLARI (DÜZELTİLDİ: TAŞMA ÖNLENDİ) */
 .logo-area {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 30px;
+    flex-wrap: wrap; /* Mobilde alta geçsin */
     margin-top: 30px;
 }
 
 .partner-item {
     text-align: center;
-    max-width: 200px;
+    width: 180px; /* Genişlik sınırlandı */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .partner-item img {
-    height: 80px;
-    width: auto;
+    max-width: 100%; /* Resim kutudan taşmasın */
+    height: 70px; /* Yükseklik sınırlandı */
     object-fit: contain;
     margin-bottom: 10px;
     transition: transform 0.3s;
@@ -205,23 +216,24 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
 .partner-item img:hover { transform: scale(1.05); }
 
 .partner-item p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #666;
     font-weight: 600;
+    line-height: 1.3;
 }
 
 /* 6. KARTLAR */
 .stat-cards, .module-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .card {
     background: var(--white);
-    padding: 30px;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform 0.3s;
     border-top: 4px solid var(--secondary-color);
@@ -230,7 +242,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
 .card:hover { transform: translateY(-5px); }
 
 .big-number {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 800;
     color: var(--accent-color);
     margin: 10px 0;
@@ -246,29 +258,23 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
 
 .quiz-card {
     background: #fff;
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     border-left: 5px solid var(--secondary-color);
     text-align: left;
 }
 
-.quiz-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
 /* 8. BUTONLAR */
 .quick-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .btn {
-    padding: 12px 25px;
+    padding: 12px 20px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
@@ -278,7 +284,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     gap: 8px;
     cursor: pointer;
     border: none;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
@@ -308,11 +314,11 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
 
 /* --- ANA SAYFA BÜYÜK KIRMIZI BUTON --- */
 .btn-ilo-hero {
-    background-color: #e74c3c; /* Kırmızı */
-    color: #ffffff !important; /* Yazı kesinlikle beyaz */
+    background-color: #e74c3c;
+    color: #ffffff !important;
     border: 2px solid #e74c3c;
     font-size: 1.1rem;
-    padding: 14px 30px;
+    padding: 12px 25px;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
     animation: pulse 2s infinite;
@@ -320,6 +326,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    max-width: 90%; /* Mobilde taşmasın */
 }
 
 .btn-ilo-hero:hover {
@@ -331,10 +338,10 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
 /* 9. FORMLAR */
 form {
     background: var(--white);
-    padding: 40px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -348,187 +355,51 @@ input, select, textarea {
     font-family: inherit;
 }
 
-/* 10. SOSYAL AĞ & UYARILAR */
-.anon-header { text-align: center; margin-bottom: 40px; }
+/* 10. DİĞER BİLEŞENLER */
+.anon-header { text-align: center; margin-bottom: 30px; }
+.security-badges { display: flex; justify-content: center; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+.badge { background: #e8f8f5; color: var(--success-color); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--success-color); display: flex; align-items: center; gap: 5px; }
 
-.security-badges {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
+.alert-box { padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 0.9rem; display: flex; gap: 15px; align-items: flex-start; }
+.alert-box.danger { background: #fadbd8; color: #c0392b; border-left: 5px solid var(--accent-color); }
 
-.badge {
-    background: #e8f8f5;
-    color: var(--success-color);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1px solid var(--success-color);
-    display: flex; align-items: center; gap: 8px;
-}
-
-.alert-box {
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    font-size: 0.95rem;
-    display: flex; gap: 15px; align-items: flex-start;
-}
-
-.alert-box.danger {
-    background: #fadbd8;
-    color: #c0392b;
-    border-left: 5px solid var(--accent-color);
-}
-
-.story-card {
-    text-align: left;
-    border-top: 4px solid var(--secondary-color);
-}
-
-.story-header {
-    display: flex; justify-content: space-between; margin-bottom: 10px;
-    border-bottom: 1px solid #eee; padding-bottom: 10px;
-}
-
-.rumuz { font-weight: 700; color: var(--primary-color); }
-.sektor-tag { background: #eee; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
-.story-text { 
-    background: #fcfcfc; padding: 15px; 
-    border-left: 3px solid #ddd; border-radius: 0 5px 5px 0; 
-    font-style: italic; color: #555; margin-bottom: 15px;
-}
+.story-text { background: #fcfcfc; padding: 15px; border-left: 3px solid #ddd; border-radius: 0 5px 5px 0; font-style: italic; color: #555; margin-bottom: 15px; }
 .story-footer { display: flex; justify-content: space-between; font-size: 0.85rem; color: #888; }
 .status { color: var(--success-color); font-weight: 600; }
 
 /* 11. POPUP MODAL */
-.modal {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: flex; justify-content: center; align-items: center;
-    z-index: 2000;
-}
-
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 2000; }
 .modal.hidden { display: none; }
-
-.modal-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    animation: slideDown 0.3s ease;
-}
-
-.close-btn {
-    position: absolute; top: 15px; right: 20px;
-    font-size: 2rem; cursor: pointer; color: #999;
-}
-
-.court-decision-box {
-    background: #f1f8ff;
-    border: 1px solid #d0e6ff;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 20px 0;
-    text-align: left;
-}
-
-.decision-card {
-    text-align: left;
-    margin-bottom: 20px;
-    border-left: 5px solid var(--primary-color);
-}
+.modal-content { background: #fff; padding: 30px; border-radius: 12px; max-width: 500px; width: 90%; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.3); animation: slideDown 0.3s ease; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: #999; }
+.court-decision-box { background: #f1f8ff; border: 1px solid #d0e6ff; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: left; }
 
 /* 12. FOOTER */
-footer {
-    background-color: var(--primary-color);
-    color: #ecf0f1;
-    padding: 40px 20px 20px;
-    text-align: center;
-    margin-top: auto;
-}
-
-.footer-logos img {
-    height: 40px;
-    margin: 0 15px;
-    opacity: 0.8;
-    filter: brightness(0) invert(1); 
-    transition: opacity 0.3s;
-}
+footer { background-color: var(--primary-color); color: #ecf0f1; padding: 30px 20px; text-align: center; margin-top: auto; }
+.footer-logos img { height: 35px; margin: 0 10px; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s; }
 .footer-logos img:hover { opacity: 1; }
-
-.footer-bottom {
-    margin-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    font-size: 0.9rem;
-}
+.footer-bottom { margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 0.85rem; }
 
 /* 13. VERİ MERKEZİ GRAFİKLERİ */
-.data-card {
-    text-align: left !important;
-}
-
-.source-note {
-    font-size: 0.8rem;
-    color: #999;
-    margin-bottom: 15px;
-    font-style: italic;
-}
-
-.bar-container {
-    margin-bottom: 15px;
-}
-
-.bar-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.progress {
-    background-color: #ecf0f1;
-    border-radius: 10px;
-    height: 12px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.fill {
-    height: 100%;
-    border-radius: 10px;
-    transition: width 1s ease-in-out;
-}
-
-.data-comment {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-}
+.data-card { text-align: left !important; }
+.source-note { font-size: 0.8rem; color: #999; margin-bottom: 15px; font-style: italic; }
+.bar-container { margin-bottom: 15px; }
+.bar-label { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; color: var(--primary-color); }
+.progress { background-color: #ecf0f1; border-radius: 10px; height: 12px; width: 100%; overflow: hidden; }
+.fill { height: 100%; border-radius: 10px; transition: width 1s ease-in-out; }
+.data-comment { font-size: 0.85rem; color: #666; margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee; }
 
 /* 14. ANİMASYONLAR VE MOBİL UYUM */
 @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-@media (max-width: 768px) {
-    .header-container { flex-direction: column; gap: 15px; }
-    nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
-    #hero-section { padding: 60px 15px; }
+/* MOBİL İÇİN KRİTİK DÜZENLEMELER */
+@media (max-width: 992px) {
+    .header-container { justify-content: center; flex-direction: column; text-align: center; }
+    .logo { margin-bottom: 10px; }
+    nav ul { justify-content: center; gap: 5px; }
+    nav a { font-size: 0.8rem; padding: 5px 8px; }
+    .main-logo-png { height: 40px; }
     .hero-content h1 { font-size: 2rem; }
-    .big-number { font-size: 2.5rem; }
-    .logo a { font-size: 1.2rem; }
 }
