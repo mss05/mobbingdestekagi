@@ -106,6 +106,36 @@ nav a:hover {
     text-decoration: none;
 }
 
+/* --- DİL DEĞİŞTİRME BUTONU (YENİ EKLENDİ) --- */
+.lang-switch {
+    background: #f1f1f1;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #777;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #ddd;
+}
+
+.lang-switch span {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.lang-switch span:hover {
+    color: var(--primary-color);
+}
+
+.active-lang {
+    color: var(--secondary-color) !important;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
 /* 3. HERO (GİRİŞ) ALANI */
 #hero-section {
     background: linear-gradient(135deg, var(--primary-color), #34495e);
@@ -276,7 +306,7 @@ h3 { color: var(--primary-color); margin-bottom: 15px; }
     color: var(--white);
 }
 
-/* --- YENİ EKLENEN: ANA SAYFA BÜYÜK KIRMIZI BUTON --- */
+/* --- ANA SAYFA BÜYÜK KIRMIZI BUTON --- */
 .btn-ilo-hero {
     background-color: #e74c3c; /* Kırmızı */
     color: #ffffff !important; /* Yazı kesinlikle beyaz */
