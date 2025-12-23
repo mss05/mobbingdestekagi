@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emsal Kararlı Mobbing Testi</title>
+    <title>Mobbing Testi | Mobbing Destek Ağı</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <div class="header-container">
             <div class="logo">
@@ -18,23 +19,24 @@
             </div>
             <nav>
                 <ul>
-                    <li class="lang-switch">
-                        <span id="btn-tr" onclick="changeLanguage('tr')">TR</span> | 
-                        <span id="btn-en" onclick="changeLanguage('en')">EN</span>
-                    </li>
-                    
-                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-                    <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> Veri Merkezi</a></li>
-                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> Yargıtay</a></li>
-                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> Test</a></li>
-                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> Hukuk</a></li>
-                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> Merkezler</a></li>
-                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> Şeffaf Ağ</a></li>
+                    <li><a href="bilgi-merkezi.html"><i class="fas fa-chart-pie"></i> <span data-lang="nav_data">Veri Merkezi</span></a></li>
+                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> <span data-lang="nav_court">Yargıtay</span></a></li>
+                    <li><a href="mobbing-testi.html" style="color:var(--secondary-color)"><i class="fas fa-check-double"></i> <span data-lang="nav_test">Test</span></a></li>
+                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> <span data-lang="nav_legal">Hukuk</span></a></li>
+                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> <span data-lang="nav_centers">Merkezler</span></a></li>
+                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> <span data-lang="nav_social">Şeffaf Ağ</span></a></li>
                     
                     <li>
                         <a href="https://mss05.github.io/ilo190imzakampanya.com/" target="_blank" class="nav-btn-highlight">
-                            <i class="fas fa-file-signature"></i> İmzala (ILO 190)
+                            <i class="fas fa-file-signature"></i> <span data-lang="nav_sign">İmzala (ILO 190)</span>
                         </a>
+                    </li>
+
+                    <li style="margin-left: 10px;">
+                        <div class="lang-switch-container">
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -43,29 +45,42 @@
 
     <main>
         <section class="section-white">
-            <h1>🧠 Yargıtay Kararlı Mobbing Testi</h1>
-            <p style="text-align:center; max-width:800px; margin:0 auto 30px;">Aşağıdaki sorular, gerçek <strong>Yargıtay Hukuk Daireleri</strong> kararlarına konu olmuş olaylardan derlenmiştir. Yaşadığınız durumun hukuki karşılığını öğrenmek için soruları cevaplayın.</p>
+            <h1 data-lang="page_test_title">🧠 Yargıtay Kararlı Mobbing Testi</h1>
+            <p style="text-align:center; max-width:800px; margin:0 auto 40px;" data-lang="page_test_desc">
+                Aşağıdaki sorular, gerçek <strong>Yargıtay Hukuk Daireleri</strong> kararlarına konu olmuş olaylardan derlenmiştir. Yaşadığınız durumun hukuki karşılığını öğrenmek için soruları cevaplayın.
+            </p>
 
-            <div id="quiz-container" class="quiz-grid">
-                </div>
+            <div id="quiz-container" class="quiz-grid"></div>
         </section>
     </main>
 
     <div id="resultModal" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modalIcon" style="font-size: 3rem; margin-bottom: 10px;"></div>
-            <h2 id="modalTitle"></h2>
-            <p id="modalDesc" style="font-size: 1.1rem; margin-bottom:20px;"></p>
+            <div id="modalIcon" style="font-size: 4rem; margin-bottom: 10px;"></div>
+            <h2 id="modalTitle" style="color: var(--primary-color);"></h2>
+            <p id="modalDesc" style="margin-bottom: 20px; font-size: 1.1rem;"></p>
+            
             <div class="court-decision-box">
-                <h4>⚖️ İlgili Emsal Karar:</h4>
-                <p id="modalDecision" style="font-weight:600; color:var(--primary-color);"></p>
-                <p id="modalDetail" style="font-size:0.9rem; margin-top:5px; font-style:italic;"></p>
+                <h4 style="color:var(--accent-color); margin-bottom:5px;"><i class="fas fa-balance-scale"></i> Emsal Karar:</h4>
+                <p id="modalDecision" style="font-weight:bold; margin-bottom:5px;"></p>
+                <p id="modalDetail" style="font-size:0.9rem; font-style:italic;"></p>
             </div>
+
             <button class="btn btn-action" onclick="closeModal()">Tamam</button>
         </div>
     </div>
 
+    <footer>
+        <div class="footer-logos">
+            <img src="logo.png" alt="Platform Logo" style="height:30px;">
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="footer_rights">&copy; 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="language.js"></script>
     <script src="mobbing-testi-logic.js"></script>
 </body>
 </html>
