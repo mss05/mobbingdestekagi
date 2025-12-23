@@ -25,9 +25,6 @@ const translations = {
         
         "section_partners_title": "Güçlü İşbirliği, Güçlü Mücadele",
         "section_partners_desc": "Bu platform, aşağıdaki kurumların veri ve hukuk desteğiyle oluşturulmuştur:",
-        "partner_1": "Mobbing ile Mücadele Derneği",
-        "partner_2": "Koop-İş Sendikası",
-        "partner_3": "İş Hukuku ve Sosyal Güvenlik Hukuku Derneği",
         
         "about_title": "Biz Kimiz?",
         "about_desc": "Biz, iş hayatına yeni atılan, umut dolu ancak kırılgan bir dönemde bulunan genç profesyonellerin (özellikle <strong>18-30 yaş</strong>) sesi olmak üzere yola çıkan bir dayanışma platformuyuz. 2025 Raporlarına göre mobbing en çok 24-33 yaş aralığını hedef almaktadır. Yargıtay kararları ışığında haklarınızı öğrenmeniz için buradayız.",
@@ -35,12 +32,10 @@ const translations = {
         // --- VERİ MERKEZİ ---
         "page_data_title": "📊 Mobbing Veri ve İstatistik Merkezi",
         "page_data_desc": "Mobbing ile Mücadele Derneği'nin 2025 Raporu verilerini filtreleyerek sektörünüzdeki riskleri görün.",
-        "lbl_search_title": "🔍 Detaylı Veri Sorgulama",
-        "lbl_category": "🔍 Kategori Seçin:",
-        "lbl_detail": "📂 Detay Seçin:",
+        "lbl_search_title": "Detaylı Veri Sorgulama",
+        "lbl_category": "🔍 Kategori:",
+        "lbl_detail": "📂 Detay:",
         "btn_analyze": "Analiz Et",
-        
-        // Veri Merkezi Dropdown Seçenekleri (HTML içindekiler)
         "opt_sector": "Sektör ve Kurum Dağılımı",
         "opt_fail": "Mobbing Yapan Kişi (Fail)",
         "opt_complaint": "Şikayet Konuları",
@@ -51,45 +46,68 @@ const translations = {
         "page_test_title": "🧠 Yargıtay Kararlı Mobbing Testi",
         "page_test_desc": "Aşağıdaki sorular, gerçek <strong>Yargıtay Hukuk Daireleri</strong> kararlarına konu olmuş olaylardan derlenmiştir. Yaşadığınız durumun hukuki karşılığını öğrenmek için soruları cevaplayın.",
 
-        // --- HUKUK SAYFASI ---
+        // --- HUKUKİ DESTEK SAYFASI (FORMLAR) ---
         "page_legal_title": "⚖️ Mobbing Adalet Ağı",
         "page_legal_desc": "Gönüllü avukatlarımızdan ön danışmanlık almak için formu doldurun. Gizlilik esastır.",
         "form_topic": "Konu Başlığı:",
+        "ph_topic": "Örn: İstifaya Zorlama", // Placeholder
         "form_city": "Şehir:",
         "form_summary": "Olay Özeti:",
+        "ph_summary": "Lütfen sistematik baskıyı özetleyin...", // Placeholder
+        "lbl_email": "E-posta:",
+        "chk_legal_confirm": "Verilerimin anonim olarak incelenmesini onaylıyorum.",
         "btn_submit": "Başvuruyu Gönder",
 
         // --- MERKEZLER ---
         "page_centers_title": "📍 Size En Yakın Destek Noktaları",
         "page_centers_desc": "Resmi kurumlar, dernek merkezleri ve hukuki yardım noktaları.",
 
-        // --- SOSYAL AĞ ---
+        // --- SOSYAL AĞ (EKSİKLER GİDERİLDİ) ---
         "page_social_title": "🗣️ Anonim Duygu ve Destek Ağı",
         "page_social_desc": "Burası bir ifşa platformu değil, bir dayanışma alanıdır.",
         "badge_anon": "%100 Anonim",
         "badge_legal": "Hukuki Ön Denetim",
         "badge_censor": "Kurum Adı Sansürlenir",
+        
+        // Yayın Politikası Kutusu
+        "policy_title": "YAYIN POLİTİKASI:",
+        "policy_1": "Metinleriniz anında yayınlanmaz.",
+        "policy_2": "Tüm gönderiler Hukuk ve Moderasyon Ekibi onayına düşer.",
+        "policy_3": "Metin içinde yazdığınız Şirket veya Şahıs isimleri sansürlenerek (***) yayına alınır.",
+        
+        // Hikaye Formu
+        "form_story_title": "Deneyimini Paylaş",
+        "lbl_rumuz": "Rumuz (Takma Ad):",
+        "ph_rumuz": "Örn: YorgunMühendis23",
+        "lbl_sector": "Sektör:",
+        "lbl_story": "Yaşadığınız Duygu ve Olay:",
+        "ph_story": "Neler hissettiniz? İsim vermeden süreci anlatınız...",
+        "warn_censor": "*Metin içinde kurum adı geçiyorsa sistem otomatik olarak onaya düşürecektir.",
+        "chk_kvkk_text": "Yayın Politikası ve KVKK Aydınlatma Metni'ni okudum. Sansürü kabul ediyorum.",
+        "btn_send_story": "İncelemeye Gönder",
+        "feed_title": "📢 Editör Onayından Geçenler",
+        "feed_desc": "Kişi ve kurum haklarına zarar vermeyen, sansürlenmiş deneyimler.",
 
         // --- YARGITAY KARARLARI ---
         "page_court_title": "⚖️ Emsal Yargıtay Kararları Arşivi",
         "page_court_desc": "Mahkemelerin mobbing saydığı eylemler ve kararların özetleri.",
-        "lbl_topic": "Konu:",
-        "lbl_ruling": "Karar:",
-        "court_1_title": "<i class='fas fa-gavel'></i> Yargıtay 9. Hukuk Dairesi (2014/37332)",
+        "lbl_topic_court": "Konu:",
+        "lbl_ruling_court": "Karar:",
+        "court_1_title": "Yargıtay 9. Hukuk Dairesi (2014/37332)",
         "court_1_topic": "Sürekli haksızlık ve aşağılanma.",
-        "court_1_ruling": "Teknik personelin sürekli aşağılanması ve ruh sağlığının bozulması, işçilik alacaklarının yanı sıra manevi tazminatı gerektiren psikolojik tacizdir.",
-        "court_2_title": "<i class='fas fa-gavel'></i> Yargıtay 4. Hukuk Dairesi (2019/4695)",
+        "court_1_ruling": "Teknik personelin sürekli aşağılanması ve ruh sağlığının bozulması, manevi tazminatı gerektiren psikolojik tacizdir.",
+        "court_2_title": "Yargıtay 4. Hukuk Dairesi (2019/4695)",
         "court_2_topic": "Öğretmeni istifaya zorlama.",
-        "court_2_ruling": "Mesleki yetersizlik dedikodusu çıkarmak, iş yükünü artırmak ve odaya çağırıp bağırmak; öğretmeni istifaya zorlamak amaçlı sistematik mobbingdir.",
-        "court_3_title": "<i class='fas fa-gavel'></i> Yargıtay 9. Hukuk Dairesi (2020/14104)",
+        "court_2_ruling": "Mesleki yetersizlik dedikodusu çıkarmak ve iş yükünü artırmak; istifaya zorlamak amaçlı sistematik mobbingdir.",
+        "court_3_title": "Yargıtay 9. Hukuk Dairesi (2020/14104)",
         "court_3_topic": "İşçiyi yıldırma taktikleri.",
-        "court_3_ruling": "\"Ya çalışsın ya gitsin\" anlayışıyla yapılan haksız tutanaklar, görev yeri değişiklikleri ve ağır iş yükü, işçinin haklı fesih sebebidir ve tazminat gerektirir.",
-        "court_4_title": "<i class='fas fa-gavel'></i> Yargıtay 22. Hukuk Dairesi (2013/30811)",
+        "court_3_ruling": "\"Ya çalışsın ya gitsin\" anlayışıyla yapılan haksız tutanaklar ve görev yeri değişiklikleri tazminat gerektirir.",
+        "court_4_title": "Yargıtay 22. Hukuk Dairesi (2013/30811)",
         "court_4_topic": "Ek Çalışılan Sürenin Ücretinin Ödenmemesi.",
-        "court_4_ruling": "Günlük 12-13 saati bulan çalışma süreleri ve buna eşlik eden baskı ortamı, insan haklarına aykırıdır ve mobbing unsuru taşır.",
-        "court_5_title": "<i class='fas fa-gavel'></i> Yargıtay 9. Hukuk Dairesi (2018/16436)",
+        "court_4_ruling": "Günlük 12-13 saati bulan çalışma süreleri ve baskı ortamı, insan haklarına aykırıdır ve mobbing unsuru taşır.",
+        "court_5_title": "Yargıtay 9. Hukuk Dairesi (2018/16436)",
         "court_5_topic": "Hakaret ve Yönetimin Sessizliği.",
-        "court_5_ruling": "Departman sorumlusunun hakaretlerinin yönetime bildirilmesine rağmen önlem alınmaması, işverenin mobbingden sorumlu tutulmasına neden olur.",
+        "court_5_ruling": "Hakaretlerin yönetime bildirilmesine rağmen önlem alınmaması, işverenin mobbingden sorumlu tutulmasına neden olur.",
 
         // --- FOOTER ---
         "footer_rights": "&copy; 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır."
@@ -115,9 +133,6 @@ const translations = {
         
         "section_partners_title": "Strong Cooperation, Strong Struggle",
         "section_partners_desc": "This platform was created with data and legal support from the following institutions:",
-        "partner_1": "Association for Combating Mobbing",
-        "partner_2": "Koop-Is Union",
-        "partner_3": "Labor and Social Security Law Association",
         
         "about_title": "Who Are We?",
         "about_desc": "We are a solidarity platform setting out to be the voice of young professionals (especially <strong>18-30 years old</strong>) who are entering business life and are in a hopeful but fragile period. According to 2025 Reports, mobbing targets the 24-33 age range the most. We are here for you to learn your rights in the light of Supreme Court decisions.",
@@ -125,12 +140,10 @@ const translations = {
         // --- DATA CENTER ---
         "page_data_title": "📊 Mobbing Data & Statistics Center",
         "page_data_desc": "Filter the 2025 Report data of the Association for Combating Mobbing to see risks in your sector.",
-        "lbl_search_title": "🔍 Detailed Data Query",
-        "lbl_category": "🔍 Select Category:",
-        "lbl_detail": "📂 Select Detail:",
+        "lbl_search_title": "Detailed Data Query",
+        "lbl_category": "🔍 Category:",
+        "lbl_detail": "📂 Detail:",
         "btn_analyze": "Analyze",
-
-        // Data Center Dropdown Options
         "opt_sector": "Sector and Institution Distribution",
         "opt_fail": "Perpetrator (Who Mobs?)",
         "opt_complaint": "Subject of Complaints",
@@ -141,45 +154,66 @@ const translations = {
         "page_test_title": "🧠 Supreme Court Mobbing Test",
         "page_test_desc": "The questions below are compiled from real <strong>Supreme Court</strong> cases. Answer the questions to learn the legal equivalent of your situation.",
 
-        // --- LEGAL PAGE ---
+        // --- LEGAL PAGE (FIXED) ---
         "page_legal_title": "⚖️ Mobbing Justice Network",
         "page_legal_desc": "Fill out the form to get preliminary advice from our volunteer lawyers. Privacy is essential.",
         "form_topic": "Subject:",
+        "ph_topic": "Ex: Forced Resignation", // Placeholder Fix
         "form_city": "City:",
         "form_summary": "Incident Summary:",
+        "ph_summary": "Please summarize the systematic pressure...", // Placeholder Fix
+        "lbl_email": "E-mail:",
+        "chk_legal_confirm": "I confirm my data to be analyzed anonymously.",
         "btn_submit": "Submit Application",
 
         // --- CENTERS ---
         "page_centers_title": "📍 Nearest Support Points",
         "page_centers_desc": "Official institutions, association centers, and legal aid points.",
 
-        // --- SOCIAL NET ---
+        // --- SOCIAL NET (FIXED) ---
         "page_social_title": "🗣️ Anonymous Emotion & Support Net",
         "page_social_desc": "This is not an exposure platform, but a solidarity area.",
         "badge_anon": "%100 Anonymous",
         "badge_legal": "Legal Pre-check",
         "badge_censor": "Institutions Censored",
+        
+        "policy_title": "PUBLICATION POLICY:",
+        "policy_1": "Texts are not published immediately.",
+        "policy_2": "All posts fall into Legal & Moderation approval.",
+        "policy_3": "Company/Person names are censored (***).",
+        
+        "form_story_title": "Share Your Experience",
+        "lbl_rumuz": "Nickname:",
+        "ph_rumuz": "Ex: TiredEngineer23",
+        "lbl_sector": "Sector:",
+        "lbl_story": "Emotion & Event:",
+        "ph_story": "What did you feel? Explain without giving names...",
+        "warn_censor": "*System will automatically flag for approval if institution name is detected.",
+        "chk_kvkk_text": "I read the Policy & KVKK. I accept censorship of names.",
+        "btn_send_story": "Send for Review",
+        "feed_title": "📢 Moderator Approved Posts",
+        "feed_desc": "Anonymized experiences that do not violate rights.",
 
         // --- CASE LAW ---
         "page_court_title": "⚖️ Precedent Supreme Court Decisions Archive",
         "page_court_desc": "Summaries of actions and decisions considered as mobbing by courts.",
-        "lbl_topic": "Subject:",
-        "lbl_ruling": "Ruling:",
-        "court_1_title": "<i class='fas fa-gavel'></i> 9th Civil Chamber (2014/37332)",
+        "lbl_topic_court": "Subject:",
+        "lbl_ruling_court": "Ruling:",
+        "court_1_title": "9th Civil Chamber (2014/37332)",
         "court_1_topic": "Constant unfairness and humiliation.",
-        "court_1_ruling": "Constant humiliation of technical staff and deterioration of mental health is psychological harassment requiring moral compensation in addition to labor receivables.",
-        "court_2_title": "<i class='fas fa-gavel'></i> 4th Civil Chamber (2019/4695)",
+        "court_1_ruling": "Constant humiliation and deterioration of mental health is psychological harassment requiring moral compensation.",
+        "court_2_title": "4th Civil Chamber (2019/4695)",
         "court_2_topic": "Forcing teacher to resign.",
-        "court_2_ruling": "Spreading rumors of professional incompetence, increasing workload, and shouting in the office is systematic mobbing aimed at forcing resignation.",
-        "court_3_title": "<i class='fas fa-gavel'></i> 9th Civil Chamber (2020/14104)",
+        "court_2_ruling": "Spreading rumors, increasing workload, and shouting is systematic mobbing aimed at forcing resignation.",
+        "court_3_title": "9th Civil Chamber (2020/14104)",
         "court_3_topic": "Intimidation tactics.",
-        "court_3_ruling": "Unfair reports, changes of duty station, and heavy workload with a 'work or leave' mentality are just causes for termination and require compensation.",
-        "court_4_title": "<i class='fas fa-gavel'></i> 22nd Civil Chamber (2013/30811)",
+        "court_3_ruling": "Unfair reports and duty station changes made with a 'work or leave' mentality require compensation.",
+        "court_4_title": "22nd Civil Chamber (2013/30811)",
         "court_4_topic": "Non-payment of Overtime.",
-        "court_4_ruling": "Working hours reaching 12-13 hours a day accompanied by a pressure environment is against human rights and constitutes mobbing.",
-        "court_5_title": "<i class='fas fa-gavel'></i> 9th Civil Chamber (2018/16436)",
+        "court_4_ruling": "Working 12-13 hours a day with pressure constitutes mobbing.",
+        "court_5_title": "9th Civil Chamber (2018/16436)",
         "court_5_topic": "Insults and Management Silence.",
-        "court_5_ruling": "Failure to take precautions despite reporting insults by the department supervisor causes the employer to be held responsible for mobbing.",
+        "court_5_ruling": "Failure to take precautions despite reported insults makes the employer responsible for mobbing.",
 
         // --- FOOTER ---
         "footer_rights": "&copy; 2025 Mobbing Support Network. All Rights Reserved."
@@ -187,12 +221,9 @@ const translations = {
 };
 
 // DİL DEĞİŞTİRME FONKSİYONU
-// reload: true ise sayfayı yeniler (Butona basıldığında)
-// reload: false ise sadece metinleri değiştirir (Sayfa ilk açıldığında)
 function changeLanguage(lang, reload = true) {
     localStorage.setItem('selectedLang', lang);
 
-    // HTML içindeki statik metinleri değiştir
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
@@ -219,15 +250,14 @@ function changeLanguage(lang, reload = true) {
         }
     }
 
-    // KRİTİK KISIM: Eğer kullanıcı butona bastıysa sayfayı yenile.
-    // Bu sayede Test Soruları ve Veri Merkezi scriptleri yeni dili algılayıp baştan çalışır.
+    // SAYFAYI YENİLE (Logic Scriptlerinin dili algılaması için)
     if (reload) {
         window.location.reload();
     }
 }
 
-// Sayfa açıldığında dili hatırla ve uygula (Reload yapma)
+// Sayfa açıldığında dili hatırla ve uygula
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLang') || 'tr';
-    changeLanguage(savedLang, false); // false = Sayfayı yenileme, sadece metinleri koy
+    changeLanguage(savedLang, false);
 });
