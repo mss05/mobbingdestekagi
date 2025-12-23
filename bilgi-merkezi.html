@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <div class="header-container">
             <div class="logo">
@@ -18,17 +19,24 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-                    <li><a href="bilgi-merkezi.html" style="color:var(--secondary-color)"><i class="fas fa-chart-pie"></i> Veri Merkezi</a></li>
-                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> Yargıtay</a></li>
-                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> Test</a></li>
-                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> Hukuk</a></li>
-                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> Merkezler</a></li>
-                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> Şeffaf Ağ</a></li>
+                    <li><a href="bilgi-merkezi.html" style="color:var(--secondary-color)"><i class="fas fa-chart-pie"></i> <span data-lang="nav_data">Veri Merkezi</span></a></li>
+                    <li><a href="yargitay-kararlari.html"><i class="fas fa-balance-scale"></i> <span data-lang="nav_court">Yargıtay</span></a></li>
+                    <li><a href="mobbing-testi.html"><i class="fas fa-check-double"></i> <span data-lang="nav_test">Test</span></a></li>
+                    <li><a href="hukuki-destek.html"><i class="fas fa-gavel"></i> <span data-lang="nav_legal">Hukuk</span></a></li>
+                    <li><a href="destek-merkezleri.html"><i class="fas fa-map-marker-alt"></i> <span data-lang="nav_centers">Merkezler</span></a></li>
+                    <li><a href="sosyal-ag.html"><i class="fas fa-users"></i> <span data-lang="nav_social">Şeffaf Ağ</span></a></li>
+                    
                     <li>
                         <a href="https://mss05.github.io/ilo190imzakampanya.com/" target="_blank" class="nav-btn-highlight">
-                            <i class="fas fa-file-signature"></i> İmzala (ILO 190)
+                            <i class="fas fa-file-signature"></i> <span data-lang="nav_sign">İmzala (ILO 190)</span>
                         </a>
+                    </li>
+
+                    <li style="margin-left: 10px;">
+                        <div class="lang-switch-container">
+                            <div id="btn-tr" class="lang-btn active-lang" onclick="changeLanguage('tr')">TR</div>
+                            <div id="btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</div>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -37,10 +45,10 @@
 
     <main>
         <section class="section-white">
-            <h1>📊 Mobbing Veri ve İstatistik Merkezi</h1>
-            <p style="text-align:center; max-width:800px; margin:0 auto 40px;">
-                Aşağıdaki veriler, <strong>Mobbing ile Mücadele Derneği</strong> tarafından hazırlanan <em>2025 Yılı Mobbing Raporu</em>'ndan alınmıştır. 
-                Rapor, <strong>147.321 adet çağrı ve başvuru</strong> üzerinden derlenmiştir.
+            <h1 data-lang="page_data_title">📊 Mobbing Veri ve İstatistik Merkezi</h1>
+            
+            <p style="text-align:center; max-width:800px; margin:0 auto 40px;" data-lang="page_data_desc">
+                Mobbing ile Mücadele Derneği'nin 2025 Raporu verilerini filtreleyerek sektörünüzdeki riskleri görün.
             </p>
 
             <div class="data-filter-box" style="background:#f1f8ff; padding:30px; border-radius:10px; border:1px solid #d0e6ff; margin-bottom:50px;">
@@ -48,7 +56,7 @@
                 <form id="veriSorgulamaForm">
                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
                         <div>
-                            <label for="f_kategori">🔍 Kategori:</label>
+                            <label for="f_kategori" data-lang="lbl_category">🔍 Kategori:</label>
                             <select id="f_kategori" onchange="updateFiltreler()">
                                 <option value="sektor">Sektör ve Kurum Dağılımı</option>
                                 <option value="fail">Mobbing Yapan Kişi (Fail)</option>
@@ -58,13 +66,13 @@
                             </select>
                         </div>
                         <div>
-                            <label for="f_alt_kategori">📂 Detay:</label>
+                            <label for="f_alt_kategori" data-lang="lbl_detail">📂 Detay:</label>
                             <select id="f_alt_kategori">
                                 <option>Önce Kategori Seçiniz...</option>
                             </select>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-action" onclick="detayliSorgula()" style="width:100%; margin-top:20px;">Analiz Et</button>
+                    <button type="button" class="btn btn-action" onclick="detayliSorgula()" style="width:100%; margin-top:20px;" data-lang="btn_analyze">Analiz Et</button>
                 </form>
 
                 <div id="sonucKarti" class="card hidden" style="margin-top:20px; text-align:center;">
@@ -184,6 +192,16 @@
         </section>
     </main>
 
+    <footer>
+        <div class="footer-logos">
+            <img src="logo.png" alt="Platform Logo" style="height:30px;">
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="footer_rights">&copy; 2025 Mobbing Destek Ağı. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
     <script src="veri-merkezi-logic.js"></script>
+    <script src="language.js"></script>
 </body>
 </html>
