@@ -1,106 +1,190 @@
-// 2023 ve 2025 Raporlarından Derlenmiş Kapsamlı Veri Seti
+// ==============================================================================
+// Dosya: veri-merkezi-logic.js
+// Amaç: Mobbing verilerini filtrelemek ve TR/EN dil desteğiyle göstermek.
+// ==============================================================================
+
+// 1. KAPSAMLI VERİ SETİ (TR / EN Destekli)
 const mobbingVerileri = {
     sektor: {
         genel: {
-            ozel: {oran: '81%', aciklama: 'Başvuruların büyük çoğunluğu (%81) Özel Sektör çalışanlarından gelmiştir.', kaynak: '2025 Raporu'},
-            kamu: {oran: '19%', aciklama: 'Başvuruların %19’u Kamu kurumlarından gelmektedir.', kaynak: '2025 Raporu'}
+            ozel: {
+                oran: '81%', 
+                aciklama: {
+                    tr: 'Başvuruların büyük çoğunluğu (%81) Özel Sektör çalışanlarından gelmiştir.',
+                    en: 'The vast majority of applications (81%) came from Private Sector employees.'
+                }, 
+                kaynak: '2025 Raporu'
+            },
+            kamu: {
+                oran: '19%', 
+                aciklama: {
+                    tr: 'Başvuruların %19’u Kamu kurumlarından gelmektedir.',
+                    en: '19% of applications come from Public Institutions.'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         },
         ozel_detay: {
-            sanayi: {oran: '6.24%', aciklama: 'Özel sektörde en çok başvuru gelen sektör Sanayi (7.478 başvuru) olmuştur.', kaynak: '2025 Raporu'},
-            magaza: {oran: '5.56%', aciklama: 'Mağaza, Restoran ve Market sektörleri ikinci sıradadır (6.661 başvuru).', kaynak: '2025 Raporu'},
-            hizmet: {oran: '2.14%', aciklama: 'Hizmet sektörü %2.14 ile önemli bir mobbing alanıdır.', kaynak: '2025 Raporu'},
-            saglik_ozel: {oran: '1.54%', aciklama: 'Özel Sağlık Kuruluşları başvuruların %1.54’ünü oluşturur.', kaynak: '2025 Raporu'},
-            turizm: {oran: '1.27%', aciklama: 'Turizm sektöründe mobbing oranı %1.27’dir.', kaynak: '2025 Raporu'}
+            sanayi: {
+                oran: '6.24%', 
+                aciklama: {
+                    tr: 'Özel sektörde en çok başvuru gelen sektör Sanayi (7.478 başvuru) olmuştur.',
+                    en: 'The sector with the most applications in the private sector was Industry (7,478 applications).'
+                }, 
+                kaynak: '2025 Raporu'
+            },
+            magaza: {
+                oran: '5.56%', 
+                aciklama: {
+                    tr: 'Mağaza, Restoran ve Market sektörleri ikinci sıradadır (6.661 başvuru).',
+                    en: 'Store, Restaurant and Market sectors are in second place (6,661 applications).'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         },
         kamu_detay: {
-            saglik: {oran: '10.82%', aciklama: 'Kamuda en çok başvuru Sağlık Bakanlığı personelinden (2.982 adet) gelmektedir.', kaynak: '2025 Raporu'},
-            meb: {oran: '5.32%', aciklama: 'Milli Eğitim Bakanlığı (Öğretmenler) ikinci sıradadır.', kaynak: '2025 Raporu'},
-            belediye: {oran: '5.11%', aciklama: 'Belediyeler ve İktisadi Teşekkülleri mobbingin yoğun olduğu yerlerdir.', kaynak: '2025 Raporu'},
-            universite: {oran: '3.20%', aciklama: 'Üniversitelerden gelen başvurular %3.20 oranındadır.', kaynak: '2025 Raporu'}
+            saglik: {
+                oran: '10.82%', 
+                aciklama: {
+                    tr: 'Kamuda en çok başvuru Sağlık Bakanlığı personelinden (2.982 adet) gelmektedir.',
+                    en: 'In the public sector, the most applications come from Ministry of Health personnel (2,982).'
+                }, 
+                kaynak: '2025 Raporu'
+            },
+            meb: {
+                oran: '5.32%', 
+                aciklama: {
+                    tr: 'Milli Eğitim Bakanlığı (Öğretmenler) ikinci sıradadır.',
+                    en: 'Ministry of National Education (Teachers) is in second place.'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         }
     },
     fail: {
-        amir: {oran: '61.29%', aciklama: 'Mobbing uygulayanların %61’i doğrudan birinci derece "Amir" statüsündedir.', kaynak: '2025 Raporu'},
-        ust_amir: {oran: '25.96%', aciklama: 'Mobbing yapanların %25.96’sı daha üst amirlerdir.', kaynak: '2025 Raporu'},
-        amir_arkadas: {oran: '7.37%', aciklama: 'Hem amir hem iş arkadaşı tarafından yapılan toplu mobbing oranıdır.', kaynak: '2025 Raporu'},
-        arkadas: {oran: '3.12%', aciklama: 'Sadece iş arkadaşı (yatay mobbing) oranı %3 civarındadır.', kaynak: '2025 Raporu'}
+        amir: {
+            oran: '61.29%', 
+            aciklama: {
+                tr: 'Mobbing uygulayanların %61’i doğrudan birinci derece "Amir" statüsündedir.',
+                en: '61% of mobbers are in the status of direct first-degree "Manager".'
+            }, 
+            kaynak: '2025 Raporu'
+        },
+        arkadas: {
+            oran: '3.12%', 
+            aciklama: {
+                tr: 'Sadece iş arkadaşı (yatay mobbing) oranı %3 civarındadır.',
+                en: 'The rate of peer-only (horizontal) mobbing is around 3%.'
+            }, 
+            kaynak: '2025 Raporu'
+        }
     },
     sikayet: {
         sebepler: {
-            isyuku: {oran: '20.20%', aciklama: 'Mağdurların %20’si "İş Yükünün Artırılması" nedeniyle şikayetçi olmuştur.', kaynak: '2025 Raporu'},
-            istifa: {oran: '19.95%', aciklama: 'İstifaya zorlama (Bezdiki) en yaygın ikinci yöntemdir.', kaynak: '2025 Raporu'},
-            tehdit: {oran: '18.27%', aciklama: 'Çalışanların %18’i tehdide maruz kalmaktadır.', kaynak: '2025 Raporu'},
-            iletisim: {oran: '16.26%', aciklama: 'İletişimin kesilmesi ve yok sayılma yaygın bir taktiktir.', kaynak: '2025 Raporu'}
+            isyuku: {
+                oran: '20.20%', 
+                aciklama: {
+                    tr: 'Mağdurların %20’si "İş Yükünün Artırılması" nedeniyle şikayetçi olmuştur.',
+                    en: '20% of victims complained about "Increased Workload".'
+                }, 
+                kaynak: '2025 Raporu'
+            },
+            istifa: {
+                oran: '19.95%', 
+                aciklama: {
+                    tr: 'İstifaya zorlama (Bezdiki) en yaygın ikinci yöntemdir.',
+                    en: 'Forcing resignation is the second most common method.'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         },
         saldiri_tipleri: {
-            azarlanma: {oran: '50.12%', aciklama: 'İletişim saldırılarında en çok "Azarlanma ve Karalanma" görülür.', kaynak: '2025 Raporu'},
-            gormezden: {oran: '39.39%', aciklama: 'Sosyal ilişkilerde en çok "Görmezden Gelinme" uygulanır.', kaynak: '2025 Raporu'},
-            itibar: {oran: '22.71%', aciklama: 'İtibar saldırılarında "Açıkça Kişiliğe Saldırı" öndedir.', kaynak: '2025 Raporu'}
+            azarlanma: {
+                oran: '50.12%', 
+                aciklama: {
+                    tr: 'İletişim saldırılarında en çok "Azarlanma ve Karalanma" görülür.',
+                    en: '"Scolding and Smearing" are seen most in communication attacks.'
+                }, 
+                kaynak: '2025 Raporu'
+            },
+            gormezden: {
+                oran: '39.39%', 
+                aciklama: {
+                    tr: 'Sosyal ilişkilerde en çok "Görmezden Gelinme" uygulanır.',
+                    en: '"Being Ignored" is applied most in social relations.'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         }
     },
     etki: {
         psikolojik: {
-            depresyon: {oran: '35.53%', aciklama: 'Mağdurların %35.53’ünde Depresif Bozukluk teşhis edilmiştir.', kaynak: '2025 Raporu'},
-            kaygi: {oran: '22.20%', aciklama: 'Kaygı Bozukluğu (Anksiyete) ikinci sırada yer alır.', kaynak: '2025 Raporu'},
-            panik: {oran: '11.32%', aciklama: 'Panik Atak ve Bozukluklar %11 oranında görülür.', kaynak: '2025 Raporu'},
-            uyku: {oran: '5.81%', aciklama: 'Uyku bozuklukları sıkça rastlanan bir etkidir.', kaynak: '2025 Raporu'}
+            depresyon: {
+                oran: '35.53%', 
+                aciklama: {
+                    tr: 'Mağdurların %35.53’ünde Depresif Bozukluk teşhis edilmiştir.',
+                    en: 'Depressive Disorder was diagnosed in 35.53% of the victims.'
+                }, 
+                kaynak: '2025 Raporu'
+            },
+            kaygi: {
+                oran: '22.20%', 
+                aciklama: {
+                    tr: 'Kaygı Bozukluğu (Anksiyete) ikinci sırada yer alır.',
+                    en: 'Anxiety Disorder ranks second.'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         },
         tedavi: {
-            ilac: {oran: '82.59%', aciklama: 'Mobbing mağdurlarının %82’si ilaç tedavisi görmek zorunda kalmaktadır.', kaynak: '2025 Raporu'},
-            terapi: {oran: '6.04%', aciklama: 'Sadece psikoterapi alanların oranı düşüktür.', kaynak: '2025 Raporu'}
-        }
-    },
-    demografi: {
-        cinsiyet: {
-            kadin: {oran: '43%', aciklama: 'Başvuruların %43’ü kadın çalışanlardan gelmiştir.', kaynak: '2025 Raporu'},
-            erkek: {oran: '57%', aciklama: 'Başvuruların %57’si erkek çalışanlardan gelmiştir.', kaynak: '2025 Raporu'}
-        },
-        yas: {
-            kadin_risk: {oran: '25.22%', aciklama: 'Kadınlarda en riskli yaş grubu 24-28 yaş aralığıdır.', kaynak: '2025 Raporu'},
-            erkek_risk: {oran: '25.55%', aciklama: 'Erkeklerde en riskli yaş grubu 29-33 yaş aralığıdır.', kaynak: '2025 Raporu'}
-        },
-        il: {
-            istanbul: {oran: '27.56%', aciklama: 'Özel sektör başvurularının merkezi İstanbul’dur.', kaynak: '2025 Raporu'},
-            ankara: {oran: '13.13%', aciklama: 'Başkent Ankara ikinci sırada yer almaktadır.', kaynak: '2025 Raporu'}
+            ilac: {
+                oran: '82.59%', 
+                aciklama: {
+                    tr: 'Mobbing mağdurlarının %82’si ilaç tedavisi görmek zorunda kalmaktadır.',
+                    en: '82% of mobbing victims have to undergo drug treatment.'
+                }, 
+                kaynak: '2025 Raporu'
+            }
         }
     }
 };
 
-// FİLTRELERİ GÜNCELLEME (Frontend için)
+// 2. FİLTRELERİ GÜNCELLEME (Dropdown Seçenekleri)
 function updateFiltreler() {
     const kategori = document.getElementById('f_kategori').value;
     const altSelect = document.getElementById('f_alt_kategori');
+    const lang = localStorage.getItem('selectedLang') || 'tr'; // Dili al
+    
     altSelect.innerHTML = '';
 
     let options = {};
 
     if(kategori === 'sektor') {
         options = {
-            'genel.ozel': 'Özel Sektör (Genel)',
-            'genel.kamu': 'Kamu Sektörü (Genel)',
-            'ozel_detay.sanayi': 'Özel: Sanayi Sektörü',
-            'ozel_detay.magaza': 'Özel: Mağaza/Market',
-            'kamu_detay.saglik': 'Kamu: Sağlık Bakanlığı',
-            'kamu_detay.meb': 'Kamu: MEB (Öğretmen)'
+            'genel.ozel': lang === 'en' ? 'Private Sector (General)' : 'Özel Sektör (Genel)',
+            'genel.kamu': lang === 'en' ? 'Public Sector (General)' : 'Kamu Sektörü (Genel)',
+            'ozel_detay.sanayi': lang === 'en' ? 'Private: Industry' : 'Özel: Sanayi Sektörü',
+            'ozel_detay.magaza': lang === 'en' ? 'Private: Retail/Store' : 'Özel: Mağaza/Market',
+            'kamu_detay.saglik': lang === 'en' ? 'Public: Ministry of Health' : 'Kamu: Sağlık Bakanlığı',
+            'kamu_detay.meb': lang === 'en' ? 'Public: Education (Teachers)' : 'Kamu: MEB (Öğretmen)'
         };
     } else if(kategori === 'fail') {
         options = {
-            'fail.amir': 'Doğrudan Amir',
-            'fail.ust_amir': 'Üst Amirler',
-            'fail.arkadas': 'İş Arkadaşı'
+            'fail.amir': lang === 'en' ? 'Direct Manager' : 'Doğrudan Amir',
+            'fail.arkadas': lang === 'en' ? 'Colleague' : 'İş Arkadaşı'
         };
     } else if(kategori === 'sikayet') {
         options = {
-            'sikayet.sebepler.isyuku': 'Şikayet: İş Yükü Artırma',
-            'sikayet.sebepler.istifa': 'Şikayet: İstifaya Zorlama',
-            'sikayet.saldiri_tipleri.azarlanma': 'Saldırı: Azarlanma/Karalanma',
-            'sikayet.saldiri_tipleri.gormezden': 'Saldırı: Görmezden Gelinme'
+            'sikayet.sebepler.isyuku': lang === 'en' ? 'Complaint: Increased Workload' : 'Şikayet: İş Yükü Artırma',
+            'sikayet.sebepler.istifa': lang === 'en' ? 'Complaint: Forced Resignation' : 'Şikayet: İstifaya Zorlama',
+            'sikayet.saldiri_tipleri.azarlanma': lang === 'en' ? 'Attack: Scolding' : 'Saldırı: Azarlanma/Karalanma',
+            'sikayet.saldiri_tipleri.gormezden': lang === 'en' ? 'Attack: Ignoring' : 'Saldırı: Görmezden Gelinme'
         };
     } else if(kategori === 'etki') {
         options = {
-            'etki.psikolojik.depresyon': 'Etki: Depresif Bozukluk',
-            'etki.psikolojik.kaygi': 'Etki: Kaygı Bozukluğu',
-            'etki.tedavi.ilac': 'Tedavi: İlaç Kullanımı'
+            'etki.psikolojik.depresyon': lang === 'en' ? 'Effect: Depression' : 'Etki: Depresif Bozukluk',
+            'etki.psikolojik.kaygi': lang === 'en' ? 'Effect: Anxiety' : 'Etki: Kaygı Bozukluğu',
+            'etki.tedavi.ilac': lang === 'en' ? 'Treatment: Medication' : 'Tedavi: İlaç Kullanımı'
         };
     }
 
@@ -112,10 +196,11 @@ function updateFiltreler() {
     }
 }
 
-// SORGULAMA VE SONUÇ GÖSTERME
+// 3. SORGULAMA VE SONUÇ GÖSTERME
 function detayliSorgula() {
     const path = document.getElementById('f_alt_kategori').value.split('.');
     const kart = document.getElementById('sonucKarti');
+    const lang = localStorage.getItem('selectedLang') || 'tr'; // Dili al
     
     // Veriye erişim (Nested object traversal)
     let veri = mobbingVerileri;
@@ -124,12 +209,22 @@ function detayliSorgula() {
     }
 
     if(veri) {
-        document.querySelector('.sonuc-baslik').innerText = document.getElementById('f_alt_kategori').options[document.getElementById('f_alt_kategori').selectedIndex].text;
+        // Başlığı seçili option'dan al
+        const seciliOption = document.getElementById('f_alt_kategori').options[document.getElementById('f_alt_kategori').selectedIndex].text;
+        
+        document.querySelector('.sonuc-baslik').innerText = seciliOption;
         document.querySelector('.big-rate').innerText = veri.oran;
-        document.querySelector('.veri-detay').innerText = veri.aciklama + " (" + veri.kaynak + ")";
+        
+        // Açıklamayı dile göre seç
+        const aciklamaMetni = typeof veri.aciklama === 'object' ? veri.aciklama[lang] : veri.aciklama;
+        const kaynakMetni = lang === 'en' ? "2025 Report" : "2025 Raporu";
+
+        document.querySelector('.veri-detay').innerText = aciklamaMetni + " (" + kaynakMetni + ")";
+        
         kart.classList.remove('hidden');
         kart.style.display = 'block';
     }
 }
 
+// Sayfa yüklenince başlat
 window.onload = updateFiltreler;
